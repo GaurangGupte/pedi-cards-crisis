@@ -1,0 +1,59 @@
+<div class="event-nav">
+    <div class="button-group">
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/massive-hemorrhage-dx.html" data-title="Hemorragia masiva" class="bg-dx">Diagnóstico</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/massive-hemorrhage-tx.html" data-title="Hemorragia masiva" class="bg-tx emphasis">Tratamiento</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/massive-hemorrhage-drugs.html" data-title="Hemorragia masiva" class="bg-drugs">Medicamentos</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/massive-hemorrhage-crisis.html" data-title="Hemorragia masiva" class="bg-crisis">Crisis</button>
+        </div>
+    </div>
+    <div class="bg-tx event-title">Tratamiento</div>
+</div>
+<div class="page">
+    <ul>
+        <li>Notifique al <span data-phone-number="Blood Bank">banco de sangre</span> de inmediato, solicitar grupo sanguíneo y pruebas de compatibilidad cruzada</li>
+        <li>Active protocolo pediátrico de transfusión masiva institucional. Considere glóbulos rojos:plasma:plaquetas 2:1:1 o 1:1:1
+            <ul>
+                <li>Suministre concentrado de glóbulos rojos O negativo sin prueba cruzada y plasma tipo AB+ hasta que obtenga sangre compatible</li>
+                <li>Considere recuperación de sangre intraoperatoria (Ej: Cell Saver)</li>
+            </ul>
+        </li>
+        <li>Obtenga acceso vascular adicional si es necesario</li>
+        
+        <li class="no-weight">Monitoree posible <span class="uri" data-uri="/html/{lang}/events/hyperkalemia-ddx.html" data-title="Hiperkalemia">hiperkalemia</span>, 
+            de ser necesario administre gluconato de calcio 60 mg/kg o cloruro de calcio 20 mg/kg mientras observa la línea intravenosa (si es periférica)</li>
+        <li class="has-weight">Monitoree posible <span class="uri" data-uri="/html/{lang}/events/hyperkalemia-ddx.html" data-title="Hiperkalemia">hiperkalemia</span>, 
+            de ser necesario administre gluconato de calcio <span id="weight-range-1"></span> mg <span class="dose-definition">(60 mg/kg)</span>
+            o cloruro de calcio <span id="weight-range-2"></span> mg <span class="dose-definition">(20 mg/kg)</span> mientras observa la línea intravenosa (si es periférica)</li>
+
+        <li>Caliente el cuarto</li>
+        <li>Envíe pruebas de laboratorio cada 30 minutos: hemograma, plaquetas, PT/PTT/INR, fibrinógeno, TEG, gases arteriales, Na, K, Ca, lactato</li>
+        <li>Administración de hemoderivados:
+            <ul>
+                <li>Utilice filtro de 140 micrones para todos los productos</li>
+                <li>Utilice un calentador de fluidos para transfusión de glóbulos rojos y plasma (NO para plaquetas)</li>
+                <li>Considere utilizar equipo de transfusión rápida </li>
+                <li>Monitoree gases arteriales, electrolitos y temperatura</li>
+            </ul>
+        </li>
+        
+        <li>Une vez bajo control, llame al <span data-phone-number="Blood Bank">banco de sangre</span> para terminar el protocolo</li>
+    </ul>
+</div>
+<script>
+    if (app.weight) {
+        const get = (id) => document.getElementById(id);
+
+        // 60 mg/kg
+        get("weight-range-1").textContent = app.printNumber(app.weight * 60, 0, 2);
+
+        // 20 mg/kg IV
+        get("weight-range-2").textContent = app.printNumber(app.weight * 20, 0, 2);
+    }
+</script>

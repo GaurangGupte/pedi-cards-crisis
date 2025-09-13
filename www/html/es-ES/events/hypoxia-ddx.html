@@ -1,0 +1,87 @@
+<div class="event-nav">
+    <div class="button-group">
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/hypoxia-dx.html" data-title="Hipoxia" class="bg-dx">Diagnóstico</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/hypoxia-ddx.html" data-title="Hipoxia" class="bg-ddx emphasis">Diagnóstico diferencial</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/hypoxia-tx.html" data-title="Hipoxia" class="bg-tx">Tratamiento</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/hypoxia-crisis.html" data-title="Hipoxia" class="bg-crisis">Crisis</button>
+        </div>
+    </div>
+    <div class="bg-ddx event-title">Diagnóstico diferencial (lista parcial)</div>
+</div>
+<div class="page">
+ 
+        <strong>Escoja uno:</strong>
+
+        <div id="button-suspect" class="button-group">
+            <div class="button-container">
+                <button>SI hay sospecha que es causado por la vía aérea</button>
+            </div>
+        </div>
+        <ul id="list-suspect" class="display-none m-l-1">
+            <li><strong>Pulmones</strong>
+                <ul>
+                    <li><span data-uri="/html/{lang}/events/bronchospasm-dx.html" data-title="Broncoespasmo" class="uri">Broncoespasmo</span></li>
+                    <li>Atelectasia</li>
+                    <li>Aspiración</li>
+                    <li data-uri="/html/{lang}/events/tension-pneumothorax-dx.html" data-title="Neumotórax" class="uri">Neumotórax</li>
+                    <li>Edema pulmonar</li>
+                </ul>
+            </li>
+            <li><strong>Tubo endotraqueal</strong>
+                <ul>
+                    <li>Intubación endobronquial</li>
+                    <li>Tapón de moco</li>
+                    <li>Acodamiento o migración del tubo endotraqueal</li>                    
+                </ul>
+            </li>
+            <li><strong>Máquina</strong>
+                <ul>
+                    <li>Parámetros del ventilador: frecuencia respiratoria, volumen corriente, proporción I:E, auto-PEEP</li>
+                    <li>Fallo del equipo</li>
+                </ul>
+            </li>
+        </ul>
+
+        <div id="button-not-suspect" class="button-group">
+            <div class="button-container">
+                <button>NO hay sospecha que es causado por la vía aérea</button>
+            </div>
+        </div>
+        <ul id="list-not-suspect" class="display-none m-l-1">
+            <li><strong>Medicamentos/alergias</strong>
+                <ul>
+                    <li>Medicamentos administrados recientemente</li>
+                    <li>Alergia/<span data-uri="/html/{lang}/events/anaphylaxis-dx.html" data-title="Anafilaxia" class="uri">Anafilaxia</span>/error en la dosis</li>
+                    <li>Azul de metileno/tintes o metahemoglobinemia</li>
+                </ul>
+            </li>
+            <li><strong>Circulación</strong>
+                <ul>
+                    <li>Embolismo  – <span data-uri="/html/{lang}/events/air-embolism-dx.html" data-title="Embolismo aéreo" class="uri">embolismo aéreo</span>, graso, 
+                        CO<sub>2</sub>, pulmonar, séptico, 
+                        <span data-uri="/html/{lang}/events/myocardial-ischemia-tx.html" data-title="Isquemia miocárdica" class="uri">infarto al miocardio</span>, insuficiencia cardíaca congestiva, 
+                        <span data-uri="/html/{lang}/events/tamponade-cardiac-dx.html" data-title="Taponamiento cardíaco" class="uri">taponamiento cardíaco</span></li>
+                    <li>Sepsis severa</li>
+                    <li data-uri="/html/{lang}/events/hypotension-dx.html" data-title="Hipotensión" class="uri">Hipotensión</li>
+                    <li>Comunicación de derecha a izquierda intracardíaca o intrapulmonar</li>
+                </ul>
+            </li>
+        </ul>
+    
+</div>
+
+<script>
+    // The "pick one" section uses the accordion paradigm to show only relevant data.
+    const get = (name => document.getElementById(name)); // (this is a helper function)
+    app.createAccordion([
+        {button: get("button-suspect"), content: get("list-suspect")}, 
+        {button: get("button-not-suspect"), content: get("list-not-suspect")}
+    ]);
+</script>

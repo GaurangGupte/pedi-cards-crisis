@@ -1,0 +1,112 @@
+<div class="event-nav">
+    <div class="button-group">
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/hypotension-dx.html" data-title="Hipotensión" class="bg-dx">Diagnóstico</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/hypotension-ddx.html" data-title="Hipotensión" class="bg-ddx">Diagnóstico diferencial</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/hypotension-tx.html" data-title="Hipotensión" class="bg-tx emphasis">Tratamiento</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/hypotension-drugs.html" data-title="Hipotensión" class="bg-drugs">Medicamentos</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/hypotension-crisis.html" data-title="Hipotensión" class="bg-crisis">Crisis</button>
+        </div>
+    </div>
+    <div class="bg-tx event-title">Tratamiento</div>
+</div>
+<div class="page">
+    <ul>
+        <li>En pediatría, la hipotensión es casi siempre tratada corrigiendo la hipovolemia o reduciendo la profundidad de los anestésicos</li>
+        <li>Asegurar oxigenación / ventilación
+        <li>Descontinuar o disminuir los anestésicos</li>
+        <li>Comprobar tamaño del manguito y la posición del transductor</li>
+        <li>Considerar colocar cánula arterial si la hipotensión persiste</li>                
+        </li>
+    </ul>
+
+    <strong>Causas (Escoja uno):</strong>
+
+     <div id="button-group-1" class="button-group">
+        <div class="button-container">
+            <button>↓ Precarga</button>
+        </div>
+    </div>
+    <ul id="list-group-1" class="display-none m-l-1">
+        <li>Expandir volumen circulante (administrar fluidos rápidamente, considerar concentrado de glóbulos rojos, albúmina)</li>
+        <li>Posición Trendelenburgo</li>
+        <li>Obtenga acceso venoso, considerar vía intraósea</li>
+        <li>Causas: hipovolemia/<span data-uri="/html/{lang}/events/massive-hemorrhage-dx.html" data-title="Hemorragia masiva" class="uri">hemorragia</span>, vasodilatación, disminución del retorno venoso, 
+            <span data-uri="/html/{lang}/events/tamponade-cardiac-dx.html" data-title="Taponamiento cardíaco" class="uri">taponamiento cardíaco</span>, 
+            embolismo pulmonar, compresión de vena cava inferior (prono, quirúrgica, obesidad), 
+            <span data-uri="/html/{lang}/events/tension-pneumothorax-dx.html" data-title="Neumotórax a tensión" class="uri">neumotórax</span>/neumoperitoneo, aumento de la presión de la vía aérea</li>
+    </ul>
+
+    <div id="button-group-2" class="button-group">
+        <div class="button-container">
+            <button>↓ Contractilidad</button>
+        </div>
+    </div>
+    <ul id="list-group-2" class="display-none m-l-1">
+        <li>Iniciar inotrópicos si es necesario
+            <ul>
+                <li>DOPamina 2-20 MICROgramos/kg/min IV infusión IV</li>
+                <li class="no-weight">ADRenalina 1-10 MICROgramos/kg bolo IV seguido por infusión de ADRenalina 0,02-1 MICROgramos/kg/min IV</li>
+                <li class="has-weight">ADRenalina <span id="weight-range-1"></span> MICROgrams bolo IV <span class="dose-definition">(1-10 MICROgrams/kg bolo IV)</span>
+                    seguido por infusión de ADRenalina 0,02-1 MICROgramos/kg/min IV</li>
+            </ul>
+        </li>
+        <li>Considerar cloruro de calcio 10-30 mg/kg IV o gluconato de calcio 50 mg/kg IV</li>
+        <li>Revisar ECG: isquemia o arritmias</li>
+        <li>Analizar gases arteriales, Hb, electrolitos</li>
+        <li>Causas: fármacos inotrópicos negativos (anestésicos), arritmias, <span data-uri="/html/{lang}/events/hypoxia-dx.html" data-title="Hipoxia" class="uri">hipoxia</span>
+            e insuficiencia cardíaca 
+            (<span data-uri="/html/{lang}/events/myocardial-ischemia-tx.html" data-title="Isquemia miocárdica" class="uri">isquemia</span>)
+        </li>
+    </ul>
+
+    <div id="button-group-3" class="button-group">
+        <div class="button-container">
+            <button>↓ Poscarga</button>
+        </div>
+    </div>
+    <ul id="list-group-3" class="display-none m-l-1">
+        <li>Iniciar vasopresores
+            <ul>
+                <li>Considere infusión de NORadrenalina 0,05-2 MICROgramos/kg/min IV</li>
+                <li class="no-weight">Bolo de FENILefrina 1-20 MICROgramos/kg IV/IO seguido por una infusión 0,1-2 MICROgramos/kg/min IV</li>
+                <li class="has-weight">Bolo de FENILefrina <span id="weight-range-2"></span> MICROgrams IV/IO 
+                    <span class="dose-definition">(1-20 MICROgrams/kg)</span>
+                    seguido por una infusión 0,1-2 MICROgramos/kg/min IV</li>
+            </ul>
+        </li>
+        <li>Administrar esteroides para crisis adrenal</li>
+        <li>Causas: vasodilatación por fármacos, sepsis, <span data-uri="/html/{lang}/events/anaphylaxis-dx.html" data-title="Anafilaxia" class="uri">anafilaxia</span>, 
+            crisis adrenal, hipocalcemia, crisis tiroidea
+        </li>
+    </ul>
+</div>
+<script>
+    // The "pick one" section uses the accordion paradigm to show only relevant data.
+    const get = (name => document.getElementById(name)); // (this is a helper function)
+    app.createAccordion([
+        {button: get("button-group-1"), content: get("list-group-1")}, 
+        {button: get("button-group-2"), content: get("list-group-2")},
+        {button: get("button-group-3"), content: get("list-group-3")}
+    ]);
+
+    if (app.weight > 0) {
+        // 1-10 MICROgrams/kg
+        const calculatedRange1a = app.printNumber(app.weight, 0, 2);
+        const calculatedRange1b = app.printNumber(app.weight * 10, 0, 2);
+        document.getElementById("weight-range-1").textContent = calculatedRange1a + "-" + calculatedRange1b;
+
+         // 1-20 MICROgrams/kg
+         const calculatedRange2a = app.printNumber(app.weight, 0, 2);
+        const calculatedRange2b = app.printNumber(app.weight * 20, 0, 2);
+        document.getElementById("weight-range-2").textContent = calculatedRange2a + "-" + calculatedRange2b;
+    }
+</script>

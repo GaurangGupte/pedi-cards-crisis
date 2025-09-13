@@ -1,0 +1,31 @@
+# Source: https://github.com/phonegap/phonegap-app-developer/blob/master/.gitignore
+
+# Mac
+.DS_Store
+
+# Node
+npm-debug.log
+/node_modules
+
+# Cordova
+/platforms
+/plugins
+
+# res
+resources/signing
+
+# vscode project settings
+.vscode/
+
+# the npm lock file introduced issues when upgrading to the latest version of cordova
+package-lock.json 
+
+# iOS: save build assets
+!platforms/ios/Pedi Crisis/Images.xcassets/AppIcon.appiconset/
+!platforms/ios/Pedi Crisis/Images.xcassets/AppIcon.appiconset/*
+!platforms/ios/Pedi Crisis/Images.xcassets/LaunchStoryboard.imageset
+
+# iOS: Do not allow WKWebView to adjust the height of the body; adds the following:
+# wkWebView.scrollView setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
+!/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVWebViewEngine/CDVWebViewEngine.m
+

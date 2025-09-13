@@ -1,0 +1,51 @@
+<div class="event-nav">
+    <div class="bg-tx event-title">Tratamiento</div>
+</div>
+<div class="page">
+    Instrucciones para compresiones torácicas (para instrucciones completas ver página de <span data-uri="/html/{lang}/events/cardiac-arrest-dx.html" data-title="Paro cardíaco" class="uri">paro cardíaco</span>):
+    <ul>
+        <li>Colocar al paciente sobre la tabla espinal, mantener buena posición de las manos; si en prono, ver instrucciones abajo</li>
+        <li>Maximizar EtCO<sub>2</sub> &gt; 10 mmHg con fuerza / profundidad adecuada de compresiones</li>
+        <li>Permitir la reexpansión completa entre compresiones</li>
+        <li>Cambiar operadores cada 2 min</li>
+        <li>Usar ascenso del EtCO<sub>2</sub> para el retorno de la circulación espontánea, NO INTERRUMPIR compresiones para comprobar pulso</li>
+    </ul>
+    <strong>Escoja uno:</strong>
+
+    <div id="button-group-prone-child" class="button-group">
+        <div class="button-container">
+            <button><strong>Prono: Niños/Adolescentes</strong></button>
+        </div>
+    </div>
+    <div id="list-group-prone-child" class="display-none m-l-1">
+        <ul>
+            <li>Si no hay incisión en la línea media: comprimir con la palma de la mano sobre la columna y la otra mano encima</li>
+            <li>Si hay incisión en la línea media: comprimir con la palma de cada mano debajo de las escápulas</li>
+        </ul>
+    </div>
+
+    <div id="button-group-prone-infant" class="button-group">
+            <div class="button-container">
+                <button><strong>Prono: Infantes</strong></button>
+            </div>
+        </div>
+        <div id="list-group-prone-infant" class="display-none m-l-1">
+            <ul>
+                <li>Si no hay incisión en la línea media: colocar pulgares en la línea media</li>
+                <li>Si hay incisión en la línea media: colocar pulgares laterales a la incisión</li>
+                <li style="list-style: none;">
+                    <img class="fill-available" src="img/chest-compression-prone-infant.png" />
+                    <div><em>Imagen: Brooke Albright-Trainer, MD</em></div>
+                </li>
+            </ul>
+        </div>
+    
+</div>
+<script>
+        // The "pick one" section uses the accordion paradigm to show only relevant data.
+        const get = (id => document.getElementById(id)); // (this is a helper function)
+        app.createAccordion([
+            {button: get("button-group-prone-child"), content: get("list-group-prone-child")}, 
+            {button: get("button-group-prone-infant"), content: get("list-group-prone-infant")}
+        ]);
+</script>

@@ -1,0 +1,74 @@
+<div class="event-nav">
+    <div class="button-group">
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/air-embolism-dx.html" data-title="Air Embolism" class="bg-dx">Diagnóstico</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/air-embolism-ddx.html" data-title="Air Embolism" class="bg-ddx">Diagnóstico diferencial</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/air-embolism-tx.html" data-title="Air Embolism" class="bg-tx emphasis">Tratamiento</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/air-embolism-drugs.html" data-title="Air Embolism" class="bg-drugs">Medicamentos</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/air-embolism-crisis.html" data-title="Air Embolism" class="bg-crisis">Crisis</button>
+        </div>
+    </div>
+    <div class="bg-tx event-title">Treatment</div>
+</div>
+<style>
+    /* This is an experimental formatting. If used more widely, move these styles to "index.css". */
+    .small {
+        font-size: .8em;
+        color: #888;
+    }
+    body.hasAccessibility .small {
+        font-size: 1em;
+        color: black;
+    }
+</style> 
+<div class="page">
+    <ul>
+        <li>Notificar al equipo</li>
+        <li>Descontinuar el óxido nitroso y anestésicos inhalatorios</li>
+        <li>Aumentar el O<sub>2</sub> al 100%</li>
+        <li>Detener la entrada de aire: buscar el punto de entrada, eliminar la causa y limitar la entrada de aire adicional
+            <ul>
+                <li>Irrigue el campo quirúrgico con solución salina y compresas húmedas</li>
+                <li>Elimine todas las fuentes de gas presurizado (ej: laparoscopio, endoscopio)</li>
+                <li>Aplique cera de hueso o cemento en los bordes óseos expuestos</li>
+            </ul>
+        </li>
+        <li>Revisar que no haya aire en los equipos de infusión</li>
+        <li>Colocar el campo quirúrgico debajo del nivel del corazón, cabeza hacia abajo y lateralmente si es posible</li>
+        <li>Considerar:
+            <ul>
+                <li>Comprimir las venas yugulares intermitentemente en casos de cirugía de cabeza o cráneo</li>
+            </ul>
+        </li>
+        <li>Si hay hipotensión:
+            <ul>
+                <li class="no-weight">Administrar ADRenalina 1-10 MICROgramos/kg, considerar infusión de ADRenalina 0,02-1 MICROgramos/kg/min o NORadrenalina 0,05-2 MICROgramos/kg/min</li>
+                <li class="has-weight">
+                    Administrar ADRenalina <span id="weight-range-1"></span> MICROgramos <span class="dose-definition">(1-10 MICROgramos/kg)</span>, 
+                    considerar infusión de ADRenalina 0,02-1 MICROgramos/kg/min o NORadrenalina 0,05-2 MICROgramos/kg/min</li>
+                <li>Compresiones torácicas: 100-120/min para forzar la salida de aire, aun cuando el paciente no esté en paro cardíaco </li>
+                <li>Si está disponible, solicitar <span data-phone-number="Echo">ecocardiograma transesofágico</span></li>
+                <li>Considere <span data-phone-number="ECMO">ECMO</span></li>
+            </ul>
+        </li>
+        <li>Considere <span class="uri" data-uri="/html/{lang}/events/air-embolism-ddx.html" data-title="Air Embolism">otros diagnósticos</span></li>
+    </ul>
+</div>
+ 
+<script>
+    if (app.weight > 0) {
+        // 1-10 MICROgramos/kg
+        const calculatedRange1a = app.printNumber(app.weight, 0, 2); 
+        const calculatedRange1b = app.printNumber(app.weight * 10, 0, 2);
+        document.getElementById("weight-range-1").textContent = calculatedRange1a + "-" + calculatedRange1b;
+
+    }
+</script>

@@ -1,0 +1,57 @@
+<div class="event-nav">
+    <div class="button-group">
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/myocardial-ischemia-dx.html" data-title="Isquemia miocárdica" class="bg-dx">Diagnóstico</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/myocardial-ischemia-ddx.html" data-title="Isquemia miocárdica" class="bg-ddx">Diagnóstico diferencial</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/myocardial-ischemia-tx.html" data-title="Isquemia miocárdica" class="bg-tx emphasis">Tratamiento</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/myocardial-ischemia-crisis.html" data-title="Isquemia miocárdica" class="bg-crisis">Crisis</button>
+        </div>
+    </div>
+    <div class="bg-tx event-title">Tratamiento</div>
+</div>
+<div class="page">
+    <ul>
+        <li>Mejore suministro O<sub>2</sub>:
+            <ul>
+                <li>Aumente O<sub>2</sub> al 100%</li>
+                <li>Corrija anemia</li>
+                <li>Corrija hipotensión</li>
+            </ul>
+        </li>
+        
+        <li>Disminuya demanda de O<sub>2</sub>:
+            <ul>
+                <li>Reduzca frecuencia cardíaca</li>
+                <li>Corrija hipertensión</li>
+                <li>Restablezca ritmo sinusal</li>
+            </ul>
+        </li>
+        
+        <li>Terapia con medicamentos (raramente necesario en pacientes pediátricos, consulte a un experto en cardiología pediátrica):
+            <ul>
+                <li class="no-weight">NitroGLICERINA 0,5-5 MICROgramos/kg/min</li>
+                <li class="no-weight">Considere heparina 10 U/kg bolo, seguido por una infusión de 10 U/kg/hora</li>
+                <li class="has-weight">Considere heparina <span id="weight-range-1"></span> U <span class="dose-definition">(10 U/kg)</span> bolo, 
+                    seguido por una infusión de 10 U/kg/hora</li>
+            </ul>
+        </li>
+        <li>Considere <span class="uri" data-uri="/html/{lang}/events/myocardial-ischemia-ddx.html" data-title="Isquemia miocárdica">diagnóstico diferencial</span></li>
+        
+    </ul>
+</div>
+
+<script>
+    if (app.weight) {
+        const get = (id) => document.getElementById(id);
+
+        // 10 Units/kg
+        get("weight-range-1").textContent = app.printNumber(app.weight * 10, 0, 2);
+
+    }
+</script>

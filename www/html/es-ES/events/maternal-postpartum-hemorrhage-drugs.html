@@ -1,0 +1,80 @@
+<div class="event-nav">
+    <div class="button-group">
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/maternal-postpartum-hemorrhage-dx.html" data-title="Hemorragia posparto (materna)" class="bg-dx">Diagnóstico</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/maternal-postpartum-hemorrhage-tx.html" data-title="Hemorragia posparto (materna)" class="bg-tx">Tratamiento</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/maternal-postpartum-hemorrhage-drugs.html" data-title="Hemorragia posparto (materna)" class="bg-drugs emphasis">Medicamentos</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/maternal-postpartum-hemorrhage-crisis.html" data-title="Hemorragia posparto (materna)" class="bg-crisis">Crisis</button>
+        </div>
+    </div>
+    <div class="bg-drugs event-title">ADULTO Resumen de medicamentos/dosis</div>
+</div>
+<div class="page">
+    <ul class="drugs">
+
+        <li><span>Cloruro de calcio</span> DOSIS&nbsp;ADULTO
+            <ul>
+                <li>200-500 mg/unidad de concentrados de glóbulos rojos</li>
+            </ul>
+        </li>
+        
+        <li><span>Oxitocina</span> DOSIS&nbsp;ADULTO
+            <ul>
+                <li>DOSIS ADULTO 3-5 unidades infusión rápida, seguido de 40 unidades infusión lenta</li>
+            </ul>
+        </li>
+
+        <li><span>Metilergonovina (Methergin)</span> DOSIS&nbsp;ADULTO
+            <ul>
+                <li>0,2 mg IM <strong>NO IV</strong>, puede repetir en 2 horas (EVITAR en hipertensión y preeclampsia)</li>
+            </ul>
+        </li>
+
+        <li><span>Carboprost (Hemabate)</span> DOSIS&nbsp;ADULTO
+            <ul>
+                <li>0,25 mg IM <strong>NO IV</strong>, puede repetirse cada 15 min hasta 8 dosis (EVITAR en asma, hipertensión pulmonar)</li>
+            </ul>
+        </li>
+
+        <li><span>Misoprostol</span> DOSIS&nbsp;ADULTO
+            <ul>
+                <li>800-1000 MICROgramos rectal</li>
+            </ul>
+        </li>
+
+        <li><span>Ácido tranexámico</span> DOSIS&nbsp;ADULTO
+            <ul>
+                <li>1 g</li>
+            </ul>
+        </li>
+
+        <li><span>Crioprecipitado</span> DOSIS&nbsp;ADULTO
+            <ul>
+                <li>10 unidades</li>
+            </ul>
+        </li>
+
+        <li><span>Factor VIIa</span>
+            <ul>
+                <li>
+                    <div class="dose-calculation"><span id="weight-range-1"></span> MICROgramos, hasta 3 dosis</div>
+                    <div class="dose-definition"><span>90 MICROgramos/kg, hasta 3 dosis</span></div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<script>
+    if (app.weight) {
+        const get = (id) => document.getElementById(id);
+
+        // 90 MICROgramos/kg
+        get("weight-range-1").textContent = app.printNumber(app.weight * 90, 0, 2);
+    }
+</script>

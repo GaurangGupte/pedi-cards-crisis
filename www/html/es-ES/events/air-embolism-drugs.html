@@ -1,0 +1,50 @@
+<div class="event-nav">
+    <div class="button-group">
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/air-embolism-dx.html" data-title="Embolismo aéreo" class="bg-dx">Diagnóstico</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/air-embolism-ddx.html" data-title="Embolismo aéreo" class="bg-ddx">Diagnóstico diferencial</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/air-embolism-tx.html" data-title="Embolismo aéreo" class="bg-tx">Tratamiento</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/air-embolism-drugs.html" data-title="Embolismo aéreo" class="bg-drugs emphasis">Medicamentos</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/air-embolism-crisis.html" data-title="Embolismo aéreo" class="bg-crisis">Crisis</button>
+        </div>
+    </div>
+    <div class="bg-drugs event-title">Resumen de medicamentos/dosis</div>
+</div>
+<div class="page">
+    <ul class="drugs">
+        <li><span>ADRenalina</span>
+            <ul>
+                <li>
+                    <div class="dose-calculation"><span id="weight-range-1"></span> MICROgramos IV/IO</div>
+                    <div class="dose-definition"><span>1-10 MICROgramos/kg IV/IO</span></div>
+                </li>
+                <li>Considere infusión 0,02-1 MICROgramos/kg/min IV</li>
+            </ul>
+        </li>
+        <li><span>NORadrenalina</span> 
+            <ul>
+                <li>Infusión 0,05-2 MICROgramos/kg/min IV</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<script>
+    if (app.weight > 0) {
+        // We'll fill in the weight ranges here.
+
+        // 1-10 MICROgramos/kg
+        const calculatedRange1a = app.printNumber(app.weight, 0, 2);
+        const calculatedRange1b = app.printNumber(app.weight * 10, 0, 2);
+        document.getElementById("weight-range-1").textContent = calculatedRange1a + "-" + calculatedRange1b;
+
+    }
+</script>

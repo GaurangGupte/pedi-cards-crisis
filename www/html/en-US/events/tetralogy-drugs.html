@@ -1,0 +1,50 @@
+<div class="event-nav">
+    <div class="button-group">
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/tetralogy-dx.html" data-title="Tetralogy" class="bg-dx">Dx</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/tetralogy-ddx.html" data-title="Tetralogy" class="bg-ddx">DDx</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/tetralogy-tx.html" data-title="Tetralogy" class="bg-tx">Tx</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/tetralogy-drugs.html" data-title="Tetralogy" class="bg-drugs emphasis">Drugs</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/tetralogy-crisis.html" data-title="Tetralogy" class="bg-crisis">Crisis</button>
+        </div>
+    </div>
+    <div class="bg-drugs event-title">Drug / Dosage Summary</div>
+</div>
+<div class="page">
+    <ul class="drugs">
+        <li><span>Epinephrine</span>
+            <ul>
+                <li>
+                    <div class="dose-calculation"><span id="weight-range-1"></span> MICROgrams IV/IO</div>
+                    <div class="dose-definition"><span>1-10 MICROgrams/kg IV/IO</span></div>
+                </li>
+                <li>Consider infusion 0.02-1 MICROgrams/kg/min IV</li>
+            </ul>
+        </li>
+        <li><span>Norepinephrine</span> 
+            <ul>
+                <li>Infusion 0.05-2 MICROgrams/kg/min IV</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<script>
+    if (app.weight > 0) {
+        // We'll fill in the weight ranges here.
+
+        // 1-10 MICROgrams/kg
+        const calculatedRange1a = app.printNumber(app.weight, 0, 2);
+        const calculatedRange1b = app.printNumber(app.weight * 10, 0, 2);
+        document.getElementById("weight-range-1").textContent = calculatedRange1a + "-" + calculatedRange1b;
+
+    }
+</script>

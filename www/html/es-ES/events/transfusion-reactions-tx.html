@@ -1,0 +1,124 @@
+<div class="event-nav">
+    <div class="button-group">
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/transfusion-reactions-dx.html" data-title="Reacciones de transfusión" class="bg-dx">Diagnóstico</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/transfusion-reactions-ddx.html" data-title="Reacciones de transfusión" class="bg-ddx">Diagnóstico diferencial</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/transfusion-reactions-tx.html" data-title="Reacciones de transfusión" class="bg-tx emphasis">Tratamiento</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/transfusion-reactions-drugs.html" data-title="Reacciones de transfusión" class="bg-drugs">Medicamentos</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/transfusion-reactions-crisis.html" data-title="Reacciones de transfusión" class="bg-crisis">Crisis</button>
+        </div>
+    </div>
+    <div class="bg-tx event-title">Tratamiento</div>
+</div>
+<div class="page">
+    <div>Para todas las reacciones:</div>
+    <ul>
+        <li>Pare la transfusión</li>
+        <li>Desconecte el hemoderivado de la línea intravenosa</li>
+        <li>Administre solución salina a través de un nuevo equipo de infusión</li>
+        <li>Examine la identificación del producto; determine si el paciente es el correcto</li>
+        <li>Envíe el producto al <span data-phone-number="Blood Bank">banco de sangre</span></li>
+        <li>Considere <span class="uri" data-uri="/html/{lang}/events/transfusion-reactions-ddx.html" data-title="Reacciones de transfusión">diagnóstico diferencial</span></li>
+    </ul>
+
+    <strong>Escoja uno:</strong>
+
+    <div id="button-group-1" class="button-group">
+        <div class="button-container">
+            <button><strong>Reacción de transfusión hemolítica</strong></button>
+        </div>
+    </div>
+    <div id="list-group-1" class="display-none m-l-1">
+        <div>Signos: hemoglobinemia, hemoglobinuria, coagulación intravascular diseminada, ↓&nbsp;TA, taquicardia, broncoespasmo</div>
+        <ul>
+            <li class="no-weight">Furosemida 1-2 mg/kg (MAX 40 mg)</li>
+            <li class="has-weight">Furosemida <span id="weight-range-1"></span> mg <span class="dose-definition">(1-2 mg/kg, MAX 40 mg)</span></li>
+            <li class="no-weight">Manitol 0,25-1 g/kg</li>
+            <li class="has-weight">Manitol <span id="weight-range-2"></span> g <span class="dose-definition">(0,25-1 g/kg)</span></li>
+            <li>Mantenga la presión arterial para asegurar la perfusión renal</li>
+            <li class="no-weight">Mantenga la producción de orina de al menos 1-2 mL/kg/h</li>
+            <li class="has-weight">Mantenga la producción de orina de al menos <span id="urine-output"></span> mL/h <span class="dose-definition">(1-2 mL/kg/h)</span></li>
+            <li>Prepárese para una posible inestabilidad cardiovascular</li>
+            <li>Envíe muestras de sangre y orina al laboratorio</li>
+        </ul>
+    </div>
+
+    <div id="button-group-2" class="button-group">
+        <div class="button-container">
+            <button><strong>Reacción de transfusión no hemolítica</strong></button>
+        </div>
+    </div>
+    <div id="list-group-2" class="display-none m-l-1">
+        <div>Signos: ↓ tensión arterial, broncoespasmo, edema pulmonar, fiebre, brote</div>
+        <ul>
+            <li>Tratar la fiebre</li>
+            <li>Tratar el edema pulmonar</li>
+            <li>Observe posibles signos de hemólisis</li>
+        </ul>
+    </div>  
+
+    <div id="button-group-3" class="button-group">
+        <div class="button-container">
+            <button><strong>Reacción de transfusion anafiláctica</strong></button>
+        </div>
+    </div>
+    <div id="list-group-3" class="display-none m-l-1">
+        <div>Signos: eritema, urticaria, angioedema, broncoespasmo, taquicardia, shock</div>
+        <ul>
+            <li>Mantenga la vía aérea y la circulación como sea necesario</li>
+
+            <li class="no-weight">ADRenalina 1-10 MICROgramos/kg IV</li>
+            <li class="has-weight">ADRenalina <span id="weight-range-3"></span> MICROgramos <span class="dose-definition">(1-10 MICROgramos/kg)</span> IV</li>
+
+            <li class="no-weight">DifenhidrAMINA 1 mg/kg IV (MAX 50 mg)</li>
+            <li class="has-weight">DifenhidrAMINA <span id="weight-range-4"></span> mg <span class="dose-definition">(1 mg/kg, MAX 50 mg)</span> IV</li>
+            
+            <li class="no-weight">MetilPREDNISolona 2 mg/kg IV (MAX 60 mg)</li>
+            <li class="has-weight">MetilPREDNISolona <span id="weight-range-5"></span> mg <span class="dose-definition">(2 mg/kg, MAX 60 mg)</span> IV</li>
+
+            <li>Mantenga el volumen intravascular</li>
+        </ul>
+    </div>
+    
+</div>
+
+<script>
+    // The "pick one" section uses the accordion paradigm to show only relevant data.
+    const get = (id => document.getElementById(id)); // (this is a helper function)
+    app.createAccordion([
+        {button: get("button-group-1"), content: get("list-group-1")}, 
+        {button: get("button-group-2"), content: get("list-group-2")},
+        {button: get("button-group-3"), content: get("list-group-3")}
+    ]);
+
+    if (app.weight) {
+
+        // 1-2 mg/kg, MAX 40 mg
+        const weight1a = app.printNumber(Math.min(app.weight, 40), 0, 2);
+        const weight1b = app.printNumber(Math.min(app.weight * 2, 40), 0, 2);
+        get("weight-range-1").textContent = weight1a === weight1b ? weight1a : weight1a + "-" + weight1b;
+
+        // 0.25-1 g/kg
+        get("weight-range-2").textContent = app.printNumber(app.weight * .25, 0, 2) + "-" + app.printNumber(app.weight, 0, 2);
+
+        // 1-2 mL/kg/hour
+        get("urine-output").textContent = app.printNumber(app.weight, 0, 2) + "-" + app.printNumber(app.weight * 2, 0, 2);
+
+        // 1-10 MICROgramos/kg
+        get("weight-range-3").textContent = app.printNumber(app.weight, 0, 2) + "-" + app.printNumber(app.weight * 10, 0, 2);;
+
+        // 1 mg/kg, MAX 50 mg
+        get("weight-range-4").textContent = app.printNumber(Math.min(app.weight, 50), 0, 2);
+
+        // 2 mg/kg, MAX 60 mg
+        get("weight-range-5").textContent = app.printNumber(Math.min(app.weight * 2, 60), 0, 2);
+    }
+</script>

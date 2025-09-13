@@ -1,0 +1,157 @@
+<div class="event-nav">
+    <div class="button-group">
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/tachycardia-dx.html" data-title="Taquicardia inestable" class="bg-dx">Diagnóstico</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/tachycardia-tx.html" data-title="Taquicardia inestable" class="bg-tx emphasis">Tratamiento</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/tachycardia-drugs.html" data-title="Taquicardia inestable" class="bg-drugs">Medicamentos</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/tachycardia-crisis.html" data-title="Taquicardia inestable" class="bg-crisis">Crisis</button>
+        </div>
+    </div>
+    <div class="bg-tx event-title">Tratamiento</div>
+</div>
+<div class="page">
+
+    <ul>
+        <li>Solicitar el carro de paro y el desfibrilador. Ponga al paciente sobre la tabla espinal.  Colocar los parches del desfibrilador</li>
+        <li>Administre 100% O<sub>2</sub>, detenga administración de anestésicos, notifique al cirujano, considere consulta a cardiología
+            <ul>
+                <li>Llame a <span data-phone-number="Intraoperative Electrophysiology">electrofisiología intraoperatoria</span></li>
+            </ul>
+        </li>
+        <li>Si NO hay pulso presente, empezar reanimación cardiopulmonar pediátrica; ver página de
+            <span data-uri="/html/{lang}/events/cardiac-arrest-dx.html" data-title="Paro cardíaco" class="uri">paro cardíaco</span></li>
+        <li>Si hay pulso presente, <strong>Escoja uno</strong></li>
+    </ul>
+
+    <!-- Narrow complex -->
+    <div id="button-group-1" class="button-group">
+        <div class="button-container">
+            <button>Complejo estrecho: (ondas P presentes antes de cada complejo QRS)</button>
+        </div>
+    </div>
+    <ul id="list-group-1" class="display-none m-l-1">
+        <li>Probable taquicardia sinusal</li>
+        <li>Identifique y maneje etiología</li>
+    </ul>
+
+    <!-- SVT, tachyarrythmia -->
+    <div id="button-group-2" class="button-group">
+        <div class="button-container">
+            <button>Taquicardia supraventricular, taquiarritmia</button>
+        </div>
+    </div>
+    <ul id="list-group-2" class="display-none m-l-1">
+        <li>Considere maniobras vagales</li>
+        <li class="no-weight">Adenosina: 1ª dosis 0,1 mg/kg IV, <strong>bolo rápido</strong> (6 mg MAX);
+            2ª dosis 0,2 mg/kg IV (12 mg MAX)</li>
+        <li class="has-weight">Adenosina: 1ª dosis <span id="weight-range-1"></span> mg <span class="dose-definition">(0,1 mg/kg, 6 mg MAX)</span> IV, <strong>bolo rápido</strong>; 
+            2ª dosis <span id="weight-range-2"></span> mg <span class="dose-definition">(0,2 mg/kg, 12 mg MAX)</span> IV
+        </li>
+
+        <li class="no-weight">Cardioversión sincronizada: 0,5-1 julios/kg, choques subsiguientes @ 2 julios/kg </li>
+        <li class="has-weight">Cardioversión sincronizada: <span class="joule-range-1"></span> julios <span class="dose-definition">(0,5-1 julios/kg)</span>,
+            choques subsiguientes @ <span class="joule-range-2"></span> julios <span class="dose-definition">(2 julios/kg)</span>
+        </li>
+    </ul>
+
+    <!-- Wide complex -->
+    <div id="button-group-3" class="button-group">
+        <div class="button-container">
+            <button>Complejo ancho</button>
+        </div>
+    </div>
+
+    <ul id="list-group-3" class="display-none m-l-1">
+        <li class="no-weight">Amiodarona 5 mg/kg IV bolo en 20-60 min</li>
+        <li class="has-weight">Amiodarona <span id="weight-range-3"></span> mg <span class="dose-definition">(5 mg/kg)</span> IV bolo en 20-60 min</li>
+
+        <li class="no-bullet"><strong>O</strong></li>
+
+        <li class="no-weight">Procainamida 15 mg/kg IV bolo en 30-60 min</li>
+        <li class="has-weight">Procainamida <span id="weight-range-4"></span> mg <span class="dose-definition">(15 mg/kg)</span> IV bolo en 30-60 min</li>
+
+        <li class="no-bullet"><strong>O</strong></li>
+
+        <li class="no-weight">Cardioversión sincronizada: 0,5-1 julios/kg, choques subsiguientes @ 2 julios/kg </li>
+        <li class="has-weight">Cardioversión sincronizada: <span class="joule-range-1"></span> julios <span class="dose-definition">(0,5-1 julios/kg)</span>,
+            choques subsiguientes @ <span class="joule-range-2"></span> julios <span class="dose-definition">(2 julios/kg)</span>
+        </li>
+    </ul>
+
+    <!-- Torsade de Pointes (polymorphic VT with prolonged QT) -->
+    <div id="button-group-4" class="button-group">
+        <div class="button-container">
+            <button>Torsade de Pointes (taquicardia ventricular polimórfica con prolongación de QT)</button>
+        </div>
+    </div>
+    <ul id="list-group-4" class="display-none m-l-1">
+        <li class="no-weight">Sulfato de magnesio 25-50 mg/kg IV/IO (MAX 2 g)</li>
+        <li class="has-weight">Sulfato de magnesio <span id="weight-range-5"></span> mg <span class="dose-definition">(25-50 mg/kg, MAX 2 g)</span> IV/IO</li>
+
+        <li class="no-weight">Lidocaína 1 mg/kg IV (MAX 100 mg)</li>
+        <li class="has-weight">Lidocaína <span id="weight-range-6"></span> mg <span class="dose-definition">(1 mg/kg, MAX 100 mg)</span> IV</li>
+
+        <li class="no-weight">Bicarbonato de sodio (para taquicardia supraventricular relacionada a la quinidina) 
+            1mEq/kg IV</li>
+        <li class="has-weight">Bicarbonato de sodio (para taquicardia supraventricular relacionada a la quinidina) 
+            <span id="weight-range-7"></span> mEq <span class="dose-definition">(1 mEq/kg)</span> IV</li>
+
+        <li><span data-uri="/html/{lang}/events/bradycardia-misc.html" data-title="Marcapasos transcutaneo" class="uri">Marcapasos transcutaneo</span> temporal</li>
+    </ul>
+
+</div>
+
+<script>
+
+    // The "pick one" section uses the accordion paradigm to show only relevant data.
+    const get = (name => document.getElementById(name)); // (this is a helper function)
+    app.createAccordion([
+        {button: get("button-group-1"), content: get("list-group-1")}, 
+        {button: get("button-group-2"), content: get("list-group-2")},
+        {button: get("button-group-3"), content: get("list-group-3")},
+        {button: get("button-group-4"), content: get("list-group-4")}
+    ]);
+
+    if (app.weight) {
+        // 0.1 mg/kg, 6 mg MAX
+        get("weight-range-1").textContent = app.printNumber(Math.min(app.weight * 0.1, 6), 0, 2);
+
+        // 0.2 mg/kg, 12 mg MAX
+        get("weight-range-2").textContent = app.printNumber(Math.min(app.weight * 0.2, 12), 0, 2);
+
+        // 5 mg/kg
+        get("weight-range-3").textContent = app.printNumber(app.weight * 5, 0, 2);
+
+        // 15 mg/kg
+        get("weight-range-4").textContent = app.printNumber(app.weight * 15, 0, 2);
+
+        // 25-50 mg/kg, MAX 2 g
+        // If the lower and upper bound dosage is the same due to "MAX 2 g", then display just one dosage.
+        const weight5a = app.printNumber(Math.min(app.weight * 25, 2000), 0, 2);
+        const weight5b = app.printNumber(Math.min(app.weight * 50, 2000), 0, 2)
+        get("weight-range-5").textContent = weight5a === weight5b ? weight5a : weight5a + "-" + weight5b;
+
+        // 1 mg/kg, MAX 100 mg
+        get("weight-range-6").textContent = app.printNumber(Math.min(app.weight, 100), 0, 2);
+
+        // 1 mEq/kg
+        get("weight-range-7").textContent = app.printNumber(app.weight, 0, 2);
+
+        // 0.5-1 joule/kg
+        // Note: there are multiple elements with "joule-range-*", so use getElementsByClassName().
+        Array.from(document.getElementsByClassName("joule-range-1")).forEach(element => {
+            element.textContent = app.printNumber(app.weight * 0.5, 0, 2) + "-" + app.printNumber(app.weight, 0, 2);
+        });
+
+        // 2 joules/kg
+        Array.from(document.getElementsByClassName("joule-range-2")).forEach(element => {
+            element.textContent = app.printNumber(app.weight * 2, 0, 2);
+        });
+    }
+</script>

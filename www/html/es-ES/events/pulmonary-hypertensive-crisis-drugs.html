@@ -1,0 +1,98 @@
+<div class="event-nav">
+    <div class="button-group">
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/pulmonary-hypertensive-crisis-dx.html" data-title="Crisis de hipertensión pulmonar"
+                class="bg-dx">Diagnóstico</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/pulmonary-hypertensive-crisis-tx.html" data-title="Crisis de hipertensión pulmonar"
+                class="bg-tx">Tratamiento</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/pulmonary-hypertensive-crisis-drugs.html" data-title="Crisis de hipertensión pulmonar"
+                class="bg-drugs emphasis">Medicamentos</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/pulmonary-hypertensive-crisis-crisis.html"
+                data-title="Crisis de hipertensión pulmonar" class="bg-crisis">Crisis</button>
+        </div>
+    </div>
+    <div class="bg-drugs event-title">Resumen de medicamentos/dosis</div>
+</div>
+<div class="page">
+    <ul class="drugs">
+
+        <li><span>Óxido nítrico inhalado (iNO)</span>
+            <ul>
+                <li>20-40 ppm</li>
+            </ul>
+        </li>
+
+        <li><span>Fentanilo </span>
+            <ul>
+                <li>
+                    <div class="dose-calculation"><span id="weight-range-1"></span> MICROgram</div>
+                    <div class="dose-definition"><span>1 MICROgram/kg</span></div>
+                </li>
+            </ul>
+        </li>
+
+        <li><span>Ketamina</span>
+            <ul>
+                <li>
+                    <div class="dose-calculation"><span id="weight-range-2"></span> mg</div>
+                    <div class="dose-definition"><span>0,5-1 mg/kg</span></div>
+                </li>
+            </ul>
+        </li>
+
+        <li><span>Vasopresina</span>
+            <ul>
+                <li>
+                    <div class="dose-calculation"><span id="weight-range-3"></span> unidades</div>
+                    <div class="dose-definition"><span>0,03 unidades/kg</span></div>
+                </li>
+                <li>Seguido por infusión 0,17-0,67 miliunidades/kg/minuto = 0,01-0,03 unidades/kg/hora</li>
+            </ul>
+        </li>
+
+        <li><span>NORadrenalina</span>
+            <ul>
+                <li>0,05-0,3 MICROgramos/kg/min</li>
+            </ul>
+        </li>
+
+        <li><span>ADRENAlina</span>
+            <ul>
+                <li>
+                    <div class="dose-calculation"><span id="weight-range-4"></span> MICROgramos IV/IO</div>
+                    <div class="dose-definition"><span>1-10 MICROgramos/kg IV/IO</span></div>
+                </li>
+            </ul>
+        </li>
+
+    </ul>
+</div>
+
+<script>
+    if (app.weight > 0) {
+        // 1 MICROgram/kg
+        const calculatedRange1 = app.printNumber(app.weight, 0, 2);
+        document.getElementById("weight-range-1").textContent = calculatedRange1;
+
+        // 0.5-1 mg/kg
+        const calculatedRange2a = app.printNumber(app.weight * 0.5, 0, 2);
+        const calculatedRange2b = app.printNumber(app.weight, 0, 2);
+        document.getElementById("weight-range-2").textContent = calculatedRange2a + "-" + calculatedRange2b;
+
+        // 0.03 units/kg
+        const calculatedRange3 = app.printNumber(app.weight * 0.03, 0, 2);
+        document.getElementById("weight-range-3").textContent = calculatedRange3;
+
+        // 1-10 MICROgramos/kg
+        const calculatedRange4a = app.printNumber(app.weight, 0, 2);
+        const calculatedRange4b = app.printNumber(app.weight * 10, 0, 2);
+        document.getElementById("weight-range-4").textContent = calculatedRange4a + "-" + calculatedRange4b;
+
+    }
+</script>

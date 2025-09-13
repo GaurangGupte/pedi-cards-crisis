@@ -1,0 +1,75 @@
+<div class="event-nav">
+    <div class="button-group">
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/maternal-postpartum-hemorrhage-dx.html" data-title="Hemorragia posparto (materna)" class="bg-dx">Diagnóstico</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/maternal-postpartum-hemorrhage-tx.html" data-title="Hemorragia posparto (materna)" class="bg-tx emphasis">Tratamiento</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/maternal-postpartum-hemorrhage-drugs.html" data-title="Hemorragia posparto (materna)" class="bg-drugs">Medicamentos</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/maternal-postpartum-hemorrhage-crisis.html" data-title="Hemorragia posparto (materna)" class="bg-crisis">Crisis</button>
+        </div>
+    </div>
+    <div class="bg-tx event-title">Tratamiento</div>
+</div>
+<div class="page">
+    <ul>
+        <li><strong>ATENCIÓN</strong>: esta lista es sólo para uso en pacientes de maternidad (<strong>adultos</strong>)</li>
+        <li>Prepárese para resucitación con cristaloides y hemoderivados</li>
+        <li>Obtenga acceso vascular, 2 líneas intravenosas de gran calibre</li>
+        <li>Llamar al <span data-phone-number="Blood Bank">banco de sangre</span> para activar protocolo de transfusión masiva con proporción de concentrados de glóbulos rojos:plasma:plaquetas de 4:2:1. 
+            Pida al banco de sangre que prepare la próxima ronda cuando cada ronda sea retirada.
+            <ul>
+                <li>Administrar cloruro de calcio DOSIS ADULTO 200-500 mg/unidad de concentrados de glóbulos rojos a través de un acceso venoso alterno. Vigile por hiperkalemia posible</li>
+                <li>Considere la administración temprana de ácido tranexámico</li>
+                <li>Para hemorragia refractaria, considere administrar factor VIIa y crioprecipitado o concentrado de fibrinógeno</li>
+            </ul>
+        </li>
+        
+        <li>Administrar uterotónicos:
+            <ul>
+                <li>Metilergonovina (Methergin) DOSIS ADULTO 0,2 mg IM <strong>NO IV</strong>, puede repetir en 2 horas (EVITAR en hipertensión y preeclampsia)</li>
+                <li>Carboprost (Hemabate) DOSIS ADULTO 0,25 mg IM <strong>NO IV</strong>, puede repetirse cada 15 min hasta 8 dosis (EVITAR en asma, hipertensión pulmonar)</li>
+                <li>Misoprostol DOSIS ADULTO 800-1000 MICROgramos rectal</li>
+            </ul>
+        </li>
+        
+        <li>Solicitar dispositivo de infusión rápida o presurizadores</li>
+        <li>Calentar el quirófano, al paciente y los fluidos (NO plaquetas)</li>
+        <li>Enviar niveles de hemograma completo, PT/PTT/INR, fibrinógeno, calcio, K, gases arteriales</li>
+        <li>Considere hemostáticos:
+            <ul>
+                <li>Ácido tranexámico DOSIS ADULTO 1 g</li>
+                <li>Si fibrinógeno bajo, administre crioprecipitado DOSIS ADULTO 10 U o concentrado de fibrinógeno</li>
+                <li class="no-weight">Si hemorragia refractaria, considerar factor VIIa 90 MICROgramos/kg, hasta 3 dosis</li>
+                <li class="has-weight">Si hemorragia refractaria, considerar factor VIIa <span id="weight-range-1"></span> MICROgramos <span class="dose-definition">(90 MICROgramos/kg)</span>, hasta 3 dosis</li>
+            </ul>
+        </li>
+        <li>Considere:
+            <ul>
+                <li>Vía arterial</li>
+                <li>Si la paciente está despierta induzca anestesia general</li>
+                <li>Embolización en radiología intervencionista</li>
+                <li>Monitorear TEG/ROTEM</li>
+            </ul>
+        </li>
+        
+        <li>Intervenciones obstétricas
+            <ul>
+                <li>Globo intrauterino</li>
+                <li>Sutura externa de compresión intrauterina</li>
+                <li>Ligación de la arteria uterina</li>
+                <li>Histerectomía</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<script>
+    if (app.weight) {
+        // 90 MICROgramos/kg
+        document.getElementById("weight-range-1").textContent = app.printNumber(app.weight * 90, 0, 2);
+    }
+</script>

@@ -1,0 +1,67 @@
+<div class="event-nav">
+    <div class="button-group">
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/tamponade-cardiac-dx.html" data-title="Taponamiento cardíaco" class="bg-dx">Diagnóstico</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/tamponade-cardiac-ddx.html" data-title="Taponamiento cardíaco" class="bg-ddx">Diagnóstico diferencial</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/tamponade-cardiac-tx.html" data-title="Taponamiento cardíaco" class="bg-tx">Tratamiento</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/tamponade-cardiac-drugs.html" data-title="Taponamiento cardíaco" class="bg-drugs emphasis">Medicamentos</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/tamponade-cardiac-crisis.html" data-title="Taponamiento cardíaco" class="bg-crisis">Crisis</button>
+        </div>
+    </div>
+    <div class="bg-drugs event-title">Resumen de medicamentos/dosis</div>
+</div>
+<style>
+    body.no-weight div.dose-calculation.inline {
+        display: none;
+    }
+
+    body.has-weight div.dose-calculation.inline {
+        display: inline;
+    }
+    body div.dose-definition.inline {
+        display: inline;
+    }
+</style>
+<div class="page">
+    <ul class="drugs">
+        <li><span>Ketamina</span>
+            <ul>
+                <li>
+                    <div class="dose-calculation"><span id="weight-range-1"></span> mg IV</div>
+                    <div class="dose-definition"><span>1-2 mg/kg IV</span></div>
+                </li>
+            </ul>
+        </li>
+        <li><span>ADRENAlina</span>
+            <ul>
+                <li><div class="dose-calculation inline"><span id="weight-range-2"></span> MICROgramos IV</div>
+                    <div class="dose-definition inline"><span>0,05-0,1 MICROgramos/kg IV</span></div>
+                    bolo o infusión 0,01-0,1 MICROgramos/kg/min
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<script>
+    if (app.weight > 0) {
+        // We'll fill in the weight ranges here.
+
+        // 1-2 mg/kg
+        const calculatedRange1a = app.printNumber(app.weight * 1, 0, 2);
+        const calculatedRange1b = app.printNumber(app.weight * 2, 0, 2);
+        document.getElementById("weight-range-1").textContent = calculatedRange1a + "-" + calculatedRange1b;
+
+        // 0.05-0.1
+        const calculatedRange2a = app.printNumber(app.weight * 0.05, 0, 2);
+        const calculatedRange2b = app.printNumber(app.weight * 0.1, 0, 2);
+        document.getElementById("weight-range-2").textContent = calculatedRange2a + "-" + calculatedRange2b;
+    }
+</script>

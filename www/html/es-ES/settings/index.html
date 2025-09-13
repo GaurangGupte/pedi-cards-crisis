@@ -1,0 +1,178 @@
+<style>
+    .active {
+        color: #fff;
+    }
+
+    .on.active {
+        background-color: green;
+    }
+
+    .off.active {
+        background-color: red;
+    }
+
+    .lang.active {
+        background-color: green;
+    }
+
+    .description {
+        /* Text looked goofy with the larger default line height. */
+        line-height: 1.2;
+    }
+
+</style>
+<div class="page">
+    <div>La siguiente configuración le permite personalizar la aplicación.</div>
+    <div>¡Nos encantaría recibir sus comentarios! Por favor envíelos a <a href="mailto:spapedicrisis@gmail.com">Anna Clebone</a>.</div>
+    <div class="m-b-1"><strong>¡Gracias!</strong></div>
+    <div class="section">
+        <div><strong>Idioma</strong></div>
+        <div class="description">Cambiar a otro idioma</div>
+        <button data-language="es-ES" class="lang">Español</button>
+        <button data-language="en-US" class="lang active">English</button>
+    </div>
+    <div class="section" data-setting-name="hasEventDiagnosis">
+        <div><strong>Mostrar signos y síntomas de eventos</strong></div>
+        <div class="description">Cuando encendido, la lista de eventos muestra signos y síntomas para eventos seleccionados</div>
+        <button class="on">Encendido</button>
+        <button class="off">Apagado</button>
+    </div>
+    <div class="section" data-setting-name="hasAccessibility">
+        <div><strong>Modo de accesibilidad</strong></div>
+        <div class="description">Cuando encendido, el texto es más grande</div>
+        <button id="accessibility-on" class="on">Encendido</button>
+        <button id="accessibility-off" class="off">Apagado</button>
+    </div>
+    <div class="section" data-setting-name="hasDarkMode">
+        <div><strong>Modo de oscuridad</strong></div>
+        <div class="description">Cuando encendido, el fondo es oscuro y el texto es claro</div>
+        <button id="accessibility-on" class="on">Encendido</button>
+        <button id="accessibility-off" class="off">Apagado</button>
+    </div>
+    <div class="section" data-setting-name="hasInsomnia">
+        <div><strong>Desactivar el bloqueo de pantalla</strong></div>
+        <div class="description">Cuando encendido, la pantalla no se va a bloquear automáticamente</div>
+        <button id="accessibility-on" class="on">Encendido</button>
+        <button id="accessibility-off" class="off">Apagado</button>
+    </div>
+    <div class="section">
+        <!-- Walkthrough -->
+        <div><strong>Instrucciones de la aplicación</strong></div>
+        <div class="description">¿Quieres repasarlas de nuevo? ¡Vamos!</div>
+        <button data-uri="/html/{lang}/settings/walkthrough.html" data-title="Pedi Crisis"> Vamos</button>
+    </div>
+    <div class="section">
+        <!-- Disclaimer -->
+        <div><strong>Descargo de responsabilidad</strong></div>
+        <div class="description">¿Quiere leer el descargo de responsabilidad nuevamente? Ok!</div>
+        <button data-uri="/html/{lang}/settings/disclaimer.html" data-title="Pedi Crisis"> Vamos</button>
+    </div>
+    <div class="section">
+        <!-- License -->
+        <div><strong>Licencia de software</strong></div>
+        <div class="description">¿Quiere ver el copyright? ¡Por supuesto!</div>
+        <button data-uri="/html/en-US/settings/licenses.html" data-title="Pedi Crisis"> Vamos</button>
+    </div>
+    <div id="printable-view" class="section display-none">
+        <div><strong>Printable View</strong></div>
+        <div class="description">View all events in a single printable page.</div>
+        <a href="/printable.html" target="_blank"><button> Vamos</button></a>
+    </div>
+</div>
+<script>
+
+    if (app.device && app.device.platform === "browser") {
+        document.getElementById("printable-view").classList.remove("display-none");
+    }
+
+    const setValue = (settingName, onButton, offButton) => {
+        const value = localStorage.getItem(settingName);
+        if (value === "on") {
+            document.body.classList.add(settingName);
+            document.body.parentElement.classList.add(settingName);
+            onButton.classList.add("active");
+            offButton.classList.remove("active");
+        } else {
+            document.body.classList.remove(settingName);
+            document.body.parentElement.classList.remove(settingName);
+            onButton.classList.remove("active");
+            offButton.classList.add("active");
+        }
+    };
+    const sections = document.getElementsByClassName("section");
+    // Initial setup
+    Array.from(sections).forEach(section => {
+        const settingName = section.dataset.settingName;
+        if (!settingName) {
+            // Bail if this section does not contain a real setting (like Walkthrough).
+            return;
+        }
+        if (!app.settings.names.includes(settingName)) {
+            console.warn(`Hey, developer, you need to add to "app.settings.names" the value "${settingName}".`);
+        }
+        const onButton = section.getElementsByClassName("on").item(0);
+        const offButton = section.getElementsByClassName("off").item(0);
+        setValue(settingName, onButton, offButton);
+        onButton.addEventListener("click", () => {
+            localStorage.setItem(settingName, "on");
+            setValue(settingName, onButton, offButton);
+        });
+        offButton.addEventListener("click", () => {
+            localStorage.setItem(settingName, "off");
+            setValue(settingName, onButton, offButton);
+        })
+    });
+
+    // Special logic for language
+    const languageButtons = document.getElementsByClassName("lang");
+    Array.from(languageButtons).forEach(languageButton => {
+        
+        const language = languageButton.dataset.language;
+        if (app.language === language)
+            languageButton.classList.add("active");
+        else
+            languageButton.classList.remove("active");
+
+        languageButton.addEventListener("click", (event) => {
+            app.language = language;
+            app.navigate.next("/html/{lang}/settings/index.html");
+
+            // Resets the text of the weight button.
+            app.weight = app.weight;
+        });
+    });
+
+
+    // When Accessibility is turned on, the header grows in height.
+    // This page is absolute-positioned, so the header height change is a problem.
+    // So, implement special handling so that this page does not overlap with the header.
+    const readjustPageTop = (event) => {
+
+        const page = document.getElementsByClassName("page")[0];
+        const style = page.style;
+        // Page is positioned with "absolute" by the navigation code;
+        // temporarily change the position to "static" so that we can
+        // measure a proper value for `top`.
+        style.position = "static"; // Change for just a millisecond...
+        style.top = page.offsetTop + "px";
+        style.position = "absolute"; // ...and we're back!
+
+        // The scroll position is messed up when the `position` property is changed,
+        // so scroll the accessibility section into view.
+        // Note: Mobile Safari becomes unresponsive to tap/touch/click after
+        // `scrollIntoView` is executed... until the user scrolls up or down.
+        // It's a poor experience to require the user to scroll up or down before navigating 
+        // to the Patient Weight screen (via tapping the nav button), so this auto-scroll
+        // behavior is disabled in iOS.
+        if (!app.device.ios && !app.device.safari) {
+            // Here, `event.target` is the on/off button, so the `parentElement` is the 
+            // containing `.section` element.
+            event.target.parentElement.scrollIntoView();
+        }
+
+    };
+
+    document.getElementById("accessibility-on").addEventListener("click", readjustPageTop);
+    document.getElementById("accessibility-off").addEventListener("click", readjustPageTop);
+
+</script>

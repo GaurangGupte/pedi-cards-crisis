@@ -1,0 +1,86 @@
+<div class="event-nav">
+    <div class="button-group">
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/loss-of-evoked-potentials-dx.html" data-title="Pérdida de potenciales evocados" class="bg-dx">Diagnóstico</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/loss-of-evoked-potentials-ddx.html" data-title="Pérdida de potenciales evocados" class="bg-ddx">Diagnóstico diferencial</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/loss-of-evoked-potentials-tx.html" data-title="Pérdida de potenciales evocados" class="bg-tx emphasis">Tratamiento</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/loss-of-evoked-potentials-drugs.html" data-title="Pérdida de potenciales evocados" class="bg-drugs">Medicamentos</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/loss-of-evoked-potentials-crisis.html" data-title="Pérdida de potenciales evocados" class="bg-crisis">Crisis</button>
+        </div>
+    </div>
+    <div class="bg-tx event-title">Tratamiento</div>
+</div>
+<div class="page">
+    <ul>
+
+        <li>Notifique a todos los miembros del equipo médico. “Pausa y evaluar”</li>
+        <li>La pérdida de potenciales evocados (PE) requiere de pasos definitivos para restablecer la perfusión/eliminar la causa mecánica; 
+            pérdida de potencial evocado motor &gt; 40 min puede aumentar la posibilidad de lesión neurológica permanente
+            <ul>
+                <li>Asegurar la presencia del cirujano adjunto, anestesiólogo adjunto, neurólogo o neurofisiólogo y enfermera experta a cargo</li>
+                <li>Cada servicio: evaluar situación, reportar manejo y acciones correctivas ejecutadas
+                    <ul>
+                        <li>Cirujano: descarte causas mecánicas para cambios o pérdida de potenciales evocados incluyendo pesas de tracción</li>
+                        <li>Tecnólogo de electrofisiología: descarte causas técnicas para cambios o pérdida de potenciales evocados</li>
+                        <li>Anestesiólogo: asegúrese que no hay bloqueador neuromuscular presente; revierta el bloqueador neuromuscular de ser necesario</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Verificar posición del paciente (cuello, extremidades superiores e inferiores)</li>
+        <li>Revise el anestésico y considere mejorar la perfusión de columna vertebral modificando:
+            <ul>
+                    <li class="no-weight">Tensión arterial media &gt; 65 mmHg utilizando EFEDrina 0,1 mg/kg IV (MAX 10 mg/dosis)
+                        y/o FENILefrina 0,3-1 MICROgramos/kg IV (MAX 100 MICROgramos/dosis), repita como sea necesario</li>
+                    <li class="has-weight">Tensión arterial media &gt; 65 mmHg utilizando EFEDrina <span id="weight-range-1"></span> mg <span class="dose-definition">(0,1 mg/kg, MAX 10 mg/dosis)</span> IV 
+                        y/o FENILefrina <span id="weight-range-2"></span> MICROgramos <span class="dose-definition">(0,3-1 MICROgramos/kg, MAX 100 MICROgramos/dosis)</span> IV, repita como sea necesario</li>
+                    <li>Hemoglobina: si hay anemia, transfunda glóbulos rojos para mejorar oxigenación</li>
+                    <li>pH y PaCO<sub>2</sub>: mantenga normocarbia o hipercarbia leve (↑&nbsp;proporción I/E, ↓&nbsp;PEEP)</li>
+                    <li>Temperatura: mantenga normotermia</li>
+                    <li>Verifique posible administración errónea de medicamentos (ej.: relajante neuromuscular)</li>
+                    <li>Disminuya la profundidad de anestesia y asegure que el N<sub>2</sub>0 &lt; 50%</li>
+            </ul>
+        </li>
+        
+        <li>Discuta la posibilidad de hacer prueba de despertar intraoperatoria:
+            <ul>
+                <li>Paciente es candidato apropiado si es capaz de obedecer órdenes verbales</li>
+            </ul>
+        </li>
+        
+        <li>Considerar esteroides en dosis alta si no hay mejoría:
+            <ul>
+                <li class="no-weight">MetilPREDNISolona 30 mg/kg IV por 1 h, seguido por 5,4 mg/kg/hora IV por 23 horas</li>
+                <li class="has-weight">MetilPREDNISolona <span id="weight-range-3"></span> mg <span class="dose-definition">(30 mg/kg)</span> IV por 1 h, 
+                    seguido por 5,4 mg/kg/hora IV por 23 horas</li>
+            </ul>
+        </li>
+
+        <li>Considere <span class="uri" data-uri="/html/{lang}/events/loss-of-evoked-potentials-ddx.html" data-title="Pérdida de potenciales evocados">diagnóstico diferencial</span></li>
+        
+    </ul>
+</div>
+<script>
+    if (app.weight) {
+        const get = (id) => document.getElementById(id);
+
+        // 0.1 mg/kg, MAX 10 mg/dose
+        get("weight-range-1").textContent = app.printNumber(Math.min(app.weight * 0.1, 10), 0, 2);
+
+        // 0.3-1 MICROgramos/kg, MAX 100 MICROgramos/dose
+        const weight2a = app.printNumber(Math.min(app.weight * 0.3, 100), 0, 2);
+        const weight2b = app.printNumber(Math.min(app.weight, 100), 0, 2);
+        get("weight-range-2").textContent = weight2a === weight2b ? weight2a : weight2a + "-" + weight2b;
+        
+        // 30 mg/kg
+        get("weight-range-3").textContent = app.printNumber(app.weight * 30, 0, 2);
+    }
+</script>

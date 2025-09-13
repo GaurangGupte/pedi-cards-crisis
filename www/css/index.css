@@ -1,0 +1,475 @@
+/* Prevent focus outlines. See https://stackoverflow.com/a/17772980/772086 */
+* {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important;
+    -webkit-tap-highlight-color: transparent;
+    outline: none !important;
+}
+
+html {
+    /* On larger screens, give the background a little flair. (This creates a diagnoally-striped background) */
+    background: #f4f4f4;
+}
+
+html.hasDarkMode {
+    background: #000;
+    color: #fff;
+}
+
+html.hasDarkMode {
+    background: #222
+}
+
+body {
+    /* Center the body with `auto`; allow margin and padding to be controlled by child elements. */
+    margin: 0 auto;
+    padding: 0px;
+
+    /* Use black for better contrast */
+    color: #000;
+
+    /* Force the Content div to expand to occupy the remainder of the screen. */
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+
+    /* Keep the background color the same as the #header (in "www/index.html") for iPhone X (and other devices with notches) */    
+    background-color: #f4f4f4;
+
+    /* On larger screens, keep max-width limited to 1000px to enhance readability. */
+    width: 100%;
+    max-width: 1000px;
+
+    /* Native fonts; see https://bitsofco.de/the-new-system-font-stack/ */
+    font-family: -apple-system, BlinkMacSystemFont, Roboto, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    /* Large standard font size for improved readability. 
+     * Note: font-size is increased for accessibility and large screens; see `body.hasAccessibility` and media queries!
+     */
+    font-size: 1.1rem;
+
+    /* Prevent callout to copy image, etc when tap to hold */
+    -webkit-touch-callout: none;
+
+    /* Prevent webkit from resizing text to fit */
+    -webkit-text-size-adjust: none;
+
+    /* Prevent unintended text selection; this also disables *intended* text selection, but the trade off is worthwhile to avoid poor UX. */
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+
+    /* When scrolling to the bottom of the screen, do not pull down (overscroll/rubberband) the entire body/screen.
+     * Note: This property is set to `contain` for the `.page` elements.
+     * See: https://developers.google.com/web/updates/2017/11/overscroll-behavior
+     */
+    overscroll-behavior: none;
+
+    /* Mind the gap */
+    padding-top: constant(safe-area-inset-top); /* iOS 11.0 */
+    padding-top: env(safe-area-inset-top); /* iOS 11.2 */
+
+}
+
+
+body.hasDarkMode {
+    background: #000;
+    color: #fff;
+}
+
+/* For larger screens, let the content breathe!
+ * For reference, 
+ *   iPhone X is 375 x 812 (w x h)
+ *   Pixel 2 XL is 411 x 823
+ *   iPad is 768 x 1024
+ */
+ @media screen and (min-width: 500px) and (min-height: 900px)
+ {
+     body {
+         font-size: 1.3rem;
+     }
+ }
+ 
+
+.page {
+    /* Make the page *look* like a page */
+    background-color: #f7f7f7;
+    padding: 1em;
+
+    /* The following CSS rules work in conjunction with a javascript function that
+     * will change the `position` from `relative` (default) to `absolute`.
+     */
+
+    /* When position is absolute, this element will shrink-to-fit horizontally.
+     * That looks weird, so force this element to grow-to-fit horizontally.
+     */
+    width: 100%;
+    width: -webkit-fill-available;
+    width: -moz-fill-available;
+    width: fill-available;
+
+    /* We don't want the content to be too wide, so this is a safety check. */
+    max-width: calc(1000px - 2em);
+
+    /* Let the content breathe! */
+    line-height: 1.8;
+
+    /*
+     * The javascript function sets the `top` dynamically.
+     * The `bottom` is always `0`; this avoids setting `height` explicitly.
+     * This approach is resize-friendly (e.g., for a desktop browser).
+     */
+    bottom: 0;
+
+    /* This forces content to scroll within the `.page` element. Without this, the content would scroll over the nav. */
+    overflow-y: auto;
+    
+    /* Use floaty/touch scrolling */
+    -webkit-overflow-scrolling: touch;
+
+    /* When scrolling to the bottom of the page, do not pull down (overscroll/rubberband) the entire body/screen.
+     * Note: This property is set to `none` for the body.
+     * See: https://developers.google.com/web/updates/2017/11/overscroll-behavior
+     */
+    overscroll-behavior: contain;
+}
+
+body.hasDarkMode .page {
+    background-color: #000;
+}
+
+/* `width: fill-available` does not have great support yet, so use this class instead. */
+.fill-available {
+    width: 100%;
+    width: -webkit-fill-available;
+    width: -moz-fill-available;
+    width: fill-available;
+    /* This `max-width` seems to fix an issue where an image 
+     * will overflow when its pre-styled width is wider than its container.
+     */
+    max-width: 100%;
+}
+
+/* button-group is the parent of button-container */
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 3px;
+}
+
+.event-nav .button-group {
+    /* This offsets the left/right margin of button-container */
+    margin-left: -3px; 
+    margin-right: -3px;
+}
+
+.button-container {
+    flex-grow: 1;
+    margin: 3px;
+}
+
+/* For a non-nav button-container, don't pad the far left or far right side (the containing .page already has padding) */
+.button-container button {
+    padding: 6px;
+}
+
+button {
+	background-color:#ededed;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	border-radius:8px;
+	border:1px solid #000;
+	display:inline-block;
+    cursor:pointer;
+    text-decoration:none;
+    -webkit-text-decoration:none;
+    /* Use `min-height` because normal `height` is too restrictive for very large font sizes. */
+    min-height: 2em;
+    font-size: 0.8em;
+}
+
+/* Buttons move down 1px when they are clicked/touched.
+ * This visually simulates the press of a physical button.
+ */
+button:active {
+	position:relative;
+	top:1px;
+}
+
+input {
+    font-size: 1em;
+}
+
+button.emphasis {
+    background-color:#dfdfdf;
+    box-shadow: 0 0 0px 2px #000;
+    border: 1px solid #000;
+}
+
+
+
+body.hasDarkMode button.emphasis {
+    border-color: #000;
+    box-shadow: 0 0 0px 2px #fff;
+}
+
+.button-container button {
+    width: 100%;
+}
+
+.event-nav button {
+    text-shadow: none;
+    color: #fff;
+    /* Prevent width-overflow issue with accessibility mode. */
+    padding: 0;
+}
+
+.event-title {
+    border-radius: 4px;
+    padding: .5em;
+    color: #fff;
+}
+
+/* When in accessibility mode, font-size is larger. */
+body.hasAccessibility {
+    font-size: 1.5rem;
+}
+
+/* On small screens (e.g., 250px wide), a font size >= `1.5 rem` may overflow
+ * a few horizontal features (particularly the header and event-nav!)
+ * So, use a (somewhat arbitrary) width of 500px to reduce font size a tad.
+ */
+ @media screen and (max-width: 500px)
+ {
+    body.hasAccessibility {
+        font-size: 1.3rem;
+    }
+ }
+
+
+/* When in accessibility mode, the header and event navs have much less padding. */
+body.hasAccessibility .event-nav {
+    padding: 8px 8px 0 8px;
+}
+
+/* Greatly reduce padding when in accessibility mode so that more
+ * words fit per line. (This matches header and event-nav.)
+ */
+body.hasAccessibility .page {
+    padding: 8px;
+    max-width: 984px; /* 984px = Max-Width (1000px) - Padding-Left (8px) - Padding-Right (8px) */
+}
+
+/* For color-blind users, make links more obvious. 
+ * Important: do *not* use a generic [data-uri] selector because 
+ * buttons would look silly with underlined text!
+ */
+body.hasAccessibility span[data-uri], body.hasAccessibility li[data-uri], body.hasAccessibility a {
+    text-decoration: underline dotted;
+    /* The prefix "-webkit-" is needed for mobile Safari. */
+    -webkit-text-decoration: underline dotted;
+}
+
+/* These weight-related CSS classes will hide or display select items. */
+body.has-weight .has-weight {
+    display: unset;
+}
+
+body.has-weight li.has-weight {
+    display: list-item;
+}
+
+body.has-weight .no-weight {
+    display: none;
+}
+
+body.no-weight .no-weight {
+    display: unset;
+}
+
+body.no-weight li.no-weight {
+    display: list-item;
+}
+
+body.no-weight .has-weight {
+    display: none;
+}
+
+/* This rule is used on screens other than the event-drugs. 
+ * In practice, `.dose-definition` is a descendent of `.has-weight`.*/
+.dose-definition {
+    color: #888;
+    font-size: 0.8em;
+}
+
+/* When in accessibility mode, we should make virtually all text to black and normal-sized. */
+body.hasAccessibility .dose-definition {
+    color: #000;
+    font-size: 1em;
+}
+
+body.hasDarkMode .dose-definition {
+    /* Use `!important` to ensure that `body.hasAccessibility` rules do not override `color`.*/
+    color: #ddd !important;
+}
+
+/* This is another special case where `.dose-definition` is displayed black and normal-sized. */
+ body.no-weight ul.drugs .dose-definition {
+    color: #000;
+    font-size: 1em;
+}
+
+body.no-weight.hasDarkMode ul.drugs .dose-definition {
+    color: #fff;
+}
+
+/* Used by the Drugs section of an event. Target HTML structure looks like this:
+ *
+ *    <ul class="drugs">
+ *        <li><span>Epinephrine</span>
+ *            <ul>
+ *                <li>
+ *                    <div class="dose-calculation"><span id="weight-range-1"></span> MICROgrams IV/IO</div>
+ *                    <div class="dose-definition"><span>1-10 MICROgrams/kg IV/IO</span></div>
+ *                </li>
+ *                <li>Consider infusion 0.02-1 MICROgrams/kg/min IV</li>
+ *            </ul>
+ *        </li>
+ *        <li><span>Norepinephrine</span> 
+ *            <ul>
+ *                <li>Infusion 0.05-2 MICROgrams/kg/min IV</li>
+ *            </ul>
+ *        </li>
+ *    </ul>
+ */
+ ul.drugs ul li {
+    /* Tighten up the distance between the patient-weight-dosage and the per-kg-dosage. */
+    line-height: 1.2;
+    /* When there are two list items (li), give them a little breathing room
+    * (otherwise they will have a line height of 2.)
+    */
+    margin-bottom: .4em;
+}
+
+/* This rule will make a drug name bold. */
+ul.drugs > li > span {
+    font-weight: bold;
+}
+
+body.has-weight ul.drugs .dose-definition span::before{
+    content: "(";
+}
+
+body.has-weight ul.drugs .dose-definition span::after{
+    content: ")";
+}
+
+body.no-weight ul.drugs .dose-calculation {
+    display: none;
+}
+
+/* The default root/parent bullet point is a filled circle; the default second-level bullet point is an open circle.
+ * Change second-level (and deeper) bullet points to a (filled) square.
+ * Why? According to Barbara Burian, "the human eye tries to interpret open bullets as letters (like a or o)".
+ */
+ul ul {
+    list-style-type: square;
+}
+
+/* Override webkit default margin and padding properties: defaults are a bit too wide on smaller mobile screens */
+ul, ol {
+    padding-left: 1.5em; /* default is 40px */
+    margin-top: 0; /* default is 10px */
+}
+
+/* Dx - Diagnosis - green */
+.bg-dx, button.bg-dx.emphasis {
+    background-color: #455e0c;
+}
+
+/* DDx - Diagnosis Differential (Parital) - tan */
+.bg-ddx, button.bg-ddx.emphasis {
+    background-color: #b98021;
+}
+
+/* Tx - Treatment - purple */
+.bg-tx, button.bg-tx.emphasis {
+    background-color: #8c01a3;
+}
+
+/* Drugs - Drugs - blue */
+.bg-drugs, button.bg-drugs.emphasis {
+    background-color: #0113dc;
+}
+
+/* Crisis - Crisis - red */
+.bg-crisis, button.bg-crisis.emphasis {
+    background-color: #be251b;
+}
+
+/* Misc - Miscellaneous - orange */
+.bg-misc, button.bg-misc.emphasis {
+    background-color: #f5712d;
+}
+
+/* Not all links should be green (e.g., event names in the Events screen.)
+ * So, this rule is intended for these two situations:
+ * 1. Elements with the class `.uri`
+ *    Example: <span class="uri" data-uri="/html/{lang}/events/air-embolism-ddx.html" data-title="Air Embolism">DDx</span
+ * 2. Anchor elements. Telephone elements are used in the Phone Number screen and various Event screens.
+ *    Example: <a href="tel:555-555-5555">
+ */
+a, .uri {
+    color: #33aa33;
+    text-decoration: none;
+    -webkit-text-decoration: none;
+    cursor: pointer;
+}
+
+/* For non-anchor elements that act like links.
+ * Example: <button data-uri="/html/{lang}/events/air-embolism-dx.html" data-title="Air Embolism" class="bg-dx">Dx</button>
+ */
+[data-uri] {
+    cursor: pointer;
+}
+
+/* These elements appear at the top of each event page. */
+.event-nav {
+    padding: .5em 1em 0 1em;
+}
+
+/* Used primarily in edit screens like "phone" and "weight". */
+.section {
+    border: 1px solid #ccc;
+    border-left-width: 4px;
+    background-color: #f2f2f2;
+    margin-bottom: 1em;
+    padding: .5em;
+}
+
+body.hasDarkMode .section {
+    border: 1px solid #555;
+    background-color: #333;
+}
+
+/* Used primarily in "pick one" lists */
+.display-none {
+    display: none;
+}
+
+/* These are bootstrap-style margin indicators. */
+.m-t-1 {
+    margin-top: 1em;
+}
+.m-r-1 {
+    margin-right: 1em;
+}
+.m-b-1 {
+    margin-bottom: 1em;
+}
+.m-l-1 {
+    margin-left: 1em;
+}
+
+li.no-bullet {
+    list-style-type: none;
+}

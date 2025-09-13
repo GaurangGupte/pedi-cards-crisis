@@ -1,0 +1,125 @@
+<div class="event-nav">
+    <div class="button-group">
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/pulmonary-hypertensive-crisis-dx.html" data-title="Crisis de hipertensión pulmonar"
+                class="bg-dx">Diagnóstico</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/pulmonary-hypertensive-crisis-tx.html" data-title="Crisis de hipertensión pulmonar"
+                class="bg-tx emphasis">Tratamiento</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/pulmonary-hypertensive-crisis-drugs.html" data-title="Crisis de hipertensión pulmonar"
+                class="bg-drugs">Medicamentos</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/pulmonary-hypertensive-crisis-crisis.html"
+                data-title="Crisis de hipertensión pulmonar" class="bg-crisis">Crisis</button>
+        </div>
+    </div>
+    <div class="bg-tx event-title">Tratamiento</div>
+</div>
+<div class="page">
+
+    <strong>Manejo inicial</strong>
+    <ul>
+        <li>Administre 100% O<sub>2</sub>
+            <ul>
+                <li>Solicite <span data-phone-number="Request Nitric Oxide">
+                    óxido nítrico inhalado (iNO)</span> 20-40 ppm</li>
+                <li>↓ Saturación de O<sub>2</sub> puede no ser inmediata</li>
+            </ul>
+        </li>
+        <li>Considere ecocardiograma transesofágico y ECMO inmediatamente</li>
+
+        <li class="no-weight">
+            Aumente sedación/anestésico, considere fentanilo 1 MICROgramo/kg o ketamina 0,5-1 mg/kg
+        </li>
+        <li class="has-weight">
+            Aumente sedación/anestésico, considere fentanilo
+            <span id="weight-range-1"></span> MICROgramos
+            <span class="dose-definition">(1&nbsp;MICROgram/kg)</span>
+            o ketamina
+            <span id="weight-range-2"></span> mg
+            <span class="dose-definition">(0,5-1 mg/kg)</span>
+        </li>
+
+        <li>Administre relajante muscular</li>
+        <li>Si la perfusión es pobre, considere compresiones torácicas temprano</li>
+    </ul>
+
+    <strong>Manejo de hipotensión</strong>
+    <ul>
+        <li>Si hipotenso, administre vasopresina
+            <span class="no-weight">0,03 unidades/kg </span>
+            <span class="has-weight"><span id="weight-range-3"></span> unidades
+                <span class="dose-definition">(0,03&nbsp;unidades/kg)</span></span>
+                bolo IV, luego:
+            <ul>
+                <li>Para mantener perfusión:</li>
+                <li class="no-bullet">Vasopresina 0,17-0,67 miliunidades/kg/minuto = 0,01-0,03 unidades/kg/hora</li>
+                <li class="no-bullet"><strong>O</strong></li>
+                <li class="no-bullet">NORadrenalina 0,05-0,3 MICROgramos/kg/min</li>
+        </li>
+    </ul>
+    </li>
+    </ul>
+
+    <strong>Ventilación</strong>
+    <ul>
+        <li>Ventile con presión ventilatoria baja y prolongue la fase espiratoria para mantener volumen corriente adecuado, prevenir atelectasias y mantener la capacidad residual funcional</li>
+        <li>Mantenga normocapnia o hipocapnia leve</li>
+        <li>PEEP puede empeorar la hipertensión pulmonar</li>
+    </ul>
+
+    <strong>Manejo adicional</strong>
+    <ul>
+        <li>Administrar fluido isotónico juiciosamente para obtener normovolemia y reducir la carga acídica, corregir acidosis con bicarbonato de sodio</li>
+        <li>Mantenga ritmo sinusal normal y sincronía atrioventricular</li>
+        <li>Temperatura: asegurar normotermia</li>
+
+    </ul>
+
+    <strong>Manejo de crisis</strong>
+    <ul>
+        <li class="no-weight">
+            Si ocurre <span data-uri="/html/{lang}/events/cardiac-arrest-dx.html" data-title="paro cardíaco" class="uri">paro cardíaco</span>
+            o es inminente, administre ADRENalina 1-10 MICROgramos/kg
+        </li>
+        <li class="has-weight">
+            Si ocurre <span data-uri="/html/{lang}/events/cardiac-arrest-dx.html" data-title="paro cardíaco" class="uri">paro cardíaco</span>
+            o es inminente, administre ADRENalina <span id="weight-range-4"></span>
+            MICROgramos
+            <span class="dose-definition">(1-10&nbsp;MICROgramos/kg)</span>
+        </li>
+
+        <li>Si ocurre <span data-uri="/html/{lang}/events/cardiac-arrest-dx.html" data-title="paro cardíaco" class="uri">
+            paro cardíaco</span> comience reanimación cardiopulmonar y solicite <span data-phone-number="ECMO">ECMO</span> 
+            ya que la reanimación cardiopulmonar puede no ser efectiva si no hay comunicación intracardíaca
+        </li>
+    </ul>
+
+</div>
+
+<script>
+    if (app.weight > 0) {
+        // 1 MICROgram/kg
+        const calculatedRange1 = app.printNumber(app.weight, 0, 2);
+        document.getElementById("weight-range-1").textContent = calculatedRange1;
+
+        // 0.5-1 mg/kg
+        const calculatedRange2a = app.printNumber(app.weight * 0.5, 0, 2);
+        const calculatedRange2b = app.printNumber(app.weight, 0, 2);
+        document.getElementById("weight-range-2").textContent = calculatedRange2a + "-" + calculatedRange2b;
+
+        // 0.03 units/kg
+        const calculatedRange3 = app.printNumber(app.weight * 0.03, 0, 2);
+        document.getElementById("weight-range-3").textContent = calculatedRange3;
+
+        // 1-10 MICROgramos/kg
+        const calculatedRange4a = app.printNumber(app.weight, 0, 2);
+        const calculatedRange4b = app.printNumber(app.weight * 10, 0, 2);
+        document.getElementById("weight-range-4").textContent = calculatedRange4a + "-" + calculatedRange4b;
+
+    }
+</script>

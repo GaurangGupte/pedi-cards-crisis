@@ -1,0 +1,102 @@
+<div class="event-nav">
+    <div class="button-group">
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/bradycardia-dx.html" data-title="Bradicardia" class="bg-dx">Diagnóstico</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/bradycardia-tx.html" data-title="Bradicardia" class="bg-tx emphasis">Tratamiento</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/bradycardia-drugs.html" data-title="Bradicardia" class="bg-drugs">Medicamentos</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/bradycardia-misc.html" data-title="Bradicardia" class="bg-misc">Misceláneos</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/bradycardia-crisis.html" data-title="Bradicardia" class="bg-crisis">Crisis</button>
+        </div>
+    </div>
+    <div class="bg-tx event-title">Tratamiento</div>
+</div>
+<div class="page">
+
+    <strong>Escoja uno:</strong>
+
+    <div id="button-group-1" class="button-group">
+        <div class="button-container">
+            <button>INESTABLE: Hipotensión, sin pulso, o mala perfusión</button>
+        </div>
+    </div>
+    <ul id="list-group-1" class="display-none m-l-1">
+        <li>Iniciar compresiones torácicas, ver página de <span data-uri="/html/{lang}/events/cardiac-arrest-dx.html" data-title="Paro cardíaco" class="uri">paro cardíaco</span>
+            <ul>
+                <li class="no-weight">ADRenalina 10 MICROgramos/kg IV</li>
+                <li class="has-weight">ADRenalina <span id="weight-range-1"></span> MICROgramos <span class="dose-definition">(10 MICROgramos/kg)</span> IV</li>
+                <li>Confirme ritmo sinusal. Si hay bloqueo cardíaco o ritmo de unión/ventricular lento, llamar al <span data-phone-number="Intraoperative Electrophysiology">electrofisiólogo</span></li>
+                <li>Pedir marcapasos transcutáneo (ver página de <span data-uri="/html/{lang}/events/bradycardia-misc.html" data-title="Bradicardia" class="uri">instrucciones para marcapasos</span> e iniciar cuando esté disponible)</li>
+                <li>Considere <span data-phone-number="ECMO">ECMO</span></li>
+            </ul>
+        </li>
+    </ul>
+    
+    <div id="button-group-2" class="button-group">
+        <div class="button-container">
+            <button>ESTABLE: SI no hay HIPOtensión ni ausencia pulso o mala perfusión</button>
+        </div>
+    </div>
+    <ul id="list-group-2" class="display-none m-l-1">
+        <li>Tratar la etiología:
+            <ul>
+                <li>Si es hipoxia (más frequente): administrar 100% O<sub>2</sub>, asegurar ventilación adecuada y 
+                    ver página de <span data-uri="/html/{lang}/events/hypoxia-dx.html" data-title="Hipoxia" class="uri">hipoxia</span></li>
+                <li class="no-weight">Si es vagal: atropina 0,01-0,02 mg/kg IV</li>
+                <li class="has-weight">Si es vagal: atropina <span id="weight-range-2"></span> mg <span class="dose-definition">(0,01-0,02 mg/kg)</span> IV</li>
+                <li>Si es estímulo quirúrgico: detener el estímulo y si laparoscopia, liberar neumoperitoneo</li>
+                <li class="no-weight">Si es sobredosis por bloqueantes de calcio: cloruro de calcio 10-20 mg/kg IV o gluconato de calcio 50 mg/kg IV. Si es inefectivo, glucagón ver dosis abajo</li>
+                <li class="has-weight">Si es sobredosis por bloqueantes de calcio: cloruro de calcio <span id="weight-range-3"></span> mg IV <span class="dose-definition">(10-20 mg/kg)</span> IV
+                    o gluconato de calcio <span id="weight-range-4"></span> mg <span class="dose-definition">(50 mg/kg)</span> IV. Si es inefectivo, glucagón ver dosis abajo
+                </li>
+                <li class="no-weight">Si es sobredosis por beta bloqueantes: glucagón 50 MICROgramos/kg IV, luego infusión 0,07 mg/kg/h IV (MAX 5 mg/h) y controlar glucemias</li>
+                <li class="has-weight">Si es sobredosis por beta bloqueantes: glucagón <span id="weight-range-5"></span> MICROgramos <span class="dose-definition">(50 MICROgramos/kg)</span> IV,
+                    luego infusión 0,07 mg/kg/h IV (MAX 5 mg/h) y controlar glucemias
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<script>
+
+    // The "pick one" section uses the accordion paradigm to show only relevant data.
+    const get = (id => document.getElementById(id)); // (this is a helper function)
+    app.createAccordion([
+        {button: get("button-group-1"), content: get("list-group-1")}, 
+        {button: get("button-group-2"), content: get("list-group-2")},
+    ]);
+
+    if (app.weight > 0) {
+        // We'll fill in the weight ranges here.
+
+        // 10 MICROgramos/kg
+        const calculatedRange1 = app.printNumber(app.weight * 10, 0, 2); 
+        document.getElementById("weight-range-1").textContent = calculatedRange1;
+
+        // 0.01-0.02 mg/kg
+        const calculatedRange2a = app.printNumber(app.weight * 0.01, 0, 2); 
+        const calculatedRange2b = app.printNumber(app.weight * 0.02, 0, 2); 
+        document.getElementById("weight-range-2").textContent = calculatedRange2a + "-" + calculatedRange2b;
+
+        // 10-20 mg/kg
+        const calculatedRange3a = app.printNumber(app.weight * 10, 0, 2); 
+        const calculatedRange3b = app.printNumber(app.weight * 20, 0, 2); 
+        document.getElementById("weight-range-3").textContent = calculatedRange3a + "-" + calculatedRange3b;
+
+        // 50 mg/kg
+        const calculatedRange4 = app.printNumber(app.weight * 50, 0, 2); 
+        document.getElementById("weight-range-4").textContent = calculatedRange4;
+
+        // 50 MICROgramos/kg
+        const calculatedRange5 = app.printNumber(app.weight * 50, 0, 2); 
+        document.getElementById("weight-range-5").textContent = calculatedRange4;
+    }
+</script>

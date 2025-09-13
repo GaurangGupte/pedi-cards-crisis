@@ -1,0 +1,89 @@
+<div class="event-nav">
+    <div class="button-group">
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/bradycardia-dx.html" data-title="Bradicardia" class="bg-dx">Diagnóstico</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/bradycardia-tx.html" data-title="Bradicardia" class="bg-tx">Tratamiento</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/bradycardia-drugs.html" data-title="Bradicardia" class="bg-drugs emphasis">Medicamentos</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/bradycardia-misc.html" data-title="Bradicardia" class="bg-misc">Misceláneos</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/bradycardia-crisis.html" data-title="Bradicardia" class="bg-crisis">Crisis</button>
+        </div>
+    </div>
+    <div class="bg-drugs event-title">Resumen de medicamentos/dosis</div>
+</div>
+<div class="page">
+    <ul class="drugs">
+        <li>
+            <span>Atropina</span>
+            <ul>
+                <li>
+                    <div class="dose-calculation"><span id="weight-range-2"></span> mg IV</div>
+                    <div class="dose-definition"><span>0,01-0,02 mg/kg IV</span></div>
+                </li>             
+            </ul>
+        </li>
+
+        <li>
+            <span>Cloruro de calcio</span>
+            <ul>
+                <li>
+                    <div class="dose-calculation"><span id="weight-range-3"></span> mg IV</div>
+                    <div class="dose-definition"><span>10-20 mg/kg IV</span></div>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <span>Gluconato de calcio</span>
+            <ul>
+                <li>
+                    <div class="dose-calculation"><span id="weight-range-4"></span> mg IV</div>
+                    <div class="dose-definition"><span>50 mg/kg IV</span></div>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <span>Glucagón</span>
+            <ul>
+                <li>
+                    <div class="dose-calculation"><span id="weight-range-5"></span> MICROgramos IV</div>
+                    <div class="dose-definition"><span>50 MICROgramos/kg IV</div>
+                </li>
+                <li>Luego infusión 0,07 mg/kg/h IV MAX 5 mg/h</li>
+            </ul>
+        </li>
+
+    </ul>
+</div>
+
+<script>
+    if (app.weight > 0) {
+        // We'll fill in the weight ranges here.
+
+        // 0.01-0.02 mg/kg
+        const calculatedRange2a = app.printNumber(app.weight * 0.01, 0, 2); 
+        const calculatedRange2b = app.printNumber(app.weight * 0.02, 0, 2); 
+        document.getElementById("weight-range-2").textContent = calculatedRange2a + "-" + calculatedRange2b;
+
+        // 10-20 mg/kg
+        const calculatedRange3a = app.printNumber(app.weight * 10, 0, 2); 
+        const calculatedRange3b = app.printNumber(app.weight * 20, 0, 2); 
+        document.getElementById("weight-range-3").textContent = calculatedRange3a + "-" + calculatedRange3b;
+
+        // 50 mg/kg
+        const calculatedRange4 = app.printNumber(app.weight * 50, 0, 2); 
+        document.getElementById("weight-range-4").textContent = calculatedRange4;
+
+        // 50 MICROgramos/kg
+        const calculatedRange5 = app.printNumber(app.weight * 50, 0, 2); 
+        document.getElementById("weight-range-5").textContent = calculatedRange5;
+    }
+</script>

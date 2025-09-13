@@ -1,0 +1,83 @@
+<div class="event-nav">
+    <div class="button-group">
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/hyperkalemia-dx.html" data-title="Hiperkalemia" class="bg-dx">Diagnóstico</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/hyperkalemia-ddx.html" data-title="Hiperkalemia" class="bg-ddx">Diagnóstico diferencial</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/hyperkalemia-tx.html" data-title="Hiperkalemia" class="bg-tx emphasis">Tratamiento</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/hyperkalemia-drugs.html" data-title="Hiperkalemia" class="bg-drugs">Medicamentos</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/hyperkalemia-crisis.html" data-title="Hiperkalemia" class="bg-crisis">Crisis</button>
+        </div>
+    </div>
+    <div class="bg-tx event-title">Tratamiento</div>
+</div>
+
+<div class="page">
+    <ul>
+        <li>Si hay inestabilidad hemodinámica, iniciar reanimación cardiopulmonar</li>
+        <li>Hiperventilar con 100% O<sub>2</sub></li>
+        <li>
+            <span class="no-weight">Administrar gluconato de calcio 60-100 mg/kg IV o cloruro de calcio 20 mg/kg IV</span>
+            <span class="has-weight">Administrar gluconato de calcio <span id="weight-range-1"></span> mg <span class="dose-definition">(60-100 mg/kg)</span> IV
+                o cloruro de calcio <span id="weight-range-2"></span> mg <span class="dose-definition">(20 mg/kg)</span> IV
+            <ul>
+                <li>Si hay línea periférica, visualizar el sitio de inyección para evitar extravasación</li>
+                <li>Administrar solución salina después de administrar calcio para lavar la línea</li>
+            </ul>
+        </li>
+        
+        <li>Descontinuar fluidos que contengan potasio (lactato de Ringer /concentrado de glóbulos rojos); cambiar a solución salina</li>
+        
+        <li class="no-weight">Dextrosa IV 0,5-1 g/kg e insulina IV 0,1 Unidades/kg (MAX 10 U)</li>
+        <li class="has-weight">Dextrosa <span id="weight-range-4"></span> g <span class="dose-definition">(0,5-1 g/kg, MAX 50 g)</span> IV 
+            e insulina <span id="weight-range-5"></span> Unidades <span class="dose-definition">(0,1 Unidades/kg, MAX 10 U)</span> IV</li>
+        
+        <li>Albuterol inhalado, una vez estabilizado el ritmo cardíaco</li>
+
+        <li class="no-weight">Bicarbonato de sodio 1-2 mEq/kg IV</li>
+        <li class="has-weight">Bicarbonato de sodio <span id="weight-range-3"></span> mEq <span class="dose-definition">(1-2 mEq/kg)</span> IV</li>
+
+        <li class="no-weight">Furosemida 0,5-1 mg/kg IV</li>
+        <li class="has-weight">Furosemida <span id="weight-range-8"></span> mg <span class="dose-definition">(0,5-1 mg/kg)</span> IV</li>
+        
+        <li>En caso de <span data-uri="/html/{lang}/events/cardiac-arrest-dx.html" data-title="Paro cardíaco" class="uri">paro cardíaco</span> &gt; 6 min,
+            activar <span data-phone-number="ECMO">ECMO</span></li>
+        <li>Iniciar diálisis si la hiperkalemia es refractaria a tratamiento</li>
+        <li>Si requiere transfusión, usar concentrado de glóbulos rojos lavados o frescos</li>
+        <li>Considere <span class="uri" data-uri="/html/{lang}/events/hyperkalemia-ddx.html" data-title="Hiperkalemia">diagnóstico diferencial</span></li>
+    </ul>
+</div>
+
+<script>
+    if (app.weight) {
+        const get = (id) => document.getElementById(id);
+
+        // 60-100 mg/kg
+        get("weight-range-1").textContent = app.printNumber(app.weight * 60, 0, 2) + "-" + app.printNumber(app.weight * 100, 0, 2);
+
+        // 20 mg/kg
+        get("weight-range-2").textContent = app.printNumber(app.weight * 20, 0, 2);
+
+        // 1-2 mEq/kg
+        get("weight-range-3").textContent = app.printNumber(app.weight, 0, 2) + "-" + app.printNumber(app.weight * 2, 0, 2);
+
+        // 0.5-1 g/kg, MAX 50 g
+        const weight4a = app.printNumber(Math.min(app.weight * .5, 50), 0, 2);
+        const weight4b = app.printNumber(Math.min(app.weight, 50), 0, 2);
+        get("weight-range-4").textContent = weight4a === weight4b ? weight4a : weight4a + "-" + weight4b;
+
+        // 0.1 Unit/kg, MAX 10 Units
+        get("weight-range-5").textContent = app.printNumber(Math.min(app.weight * .1, 10), 0, 2);
+
+        //0.5-1 mg/kg
+        get("weight-range-8").textContent = app.printNumber(app.weight * .5, 0, 2) + "-" + app.printNumber(app.weight, 0, 2);
+
+    }
+</script>

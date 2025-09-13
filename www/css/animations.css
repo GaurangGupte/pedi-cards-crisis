@@ -1,0 +1,102 @@
+/* Tweaked from www.justinaguilar.com/animations */
+
+.swipe-right{
+	animation-name: swipe-right;
+	-webkit-animation-name: swipe-right;	
+
+	animation-duration: 0.2s;	
+	-webkit-animation-duration: 0.2s;
+
+	animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
+@keyframes swipe-right {
+	0% {
+		transform: translateX(150%);
+	}
+	50%{
+		transform: translateX(8%);
+	}		
+	100% {
+		transform: translateX(0%);
+	}
+}
+
+@-webkit-keyframes swipe-right {
+	0% {
+		-webkit-transform: translateX(150%);
+	}
+	50%{
+		-webkit-transform: translateX(8%);
+	}		
+	100% {
+		-webkit-transform: translateX(0%);
+	}
+}
+
+.swipe-left{
+	animation-name: swipe-left;
+	-webkit-animation-name: swipe-left;	
+
+	animation-duration: 0.2s;	
+	-webkit-animation-duration: 0.2s;
+
+	animation-timing-function: ease-in-out;	
+	-webkit-animation-timing-function: ease-in-out;		
+}
+
+@keyframes swipe-left {
+	0% {
+		transform: translateX(-150%);
+	}
+	50%{
+		transform: translateX(-8%);
+	}
+	100% {
+		transform: translateX(0%);
+	}	
+}
+
+@-webkit-keyframes swipe-left {
+	0% {
+		-webkit-transform: translateX(-150%);
+	}
+	50%{
+		-webkit-transform: translateX(-8%);
+	}		
+	100% {
+		-webkit-transform: translateX(0%);
+	}
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fade-in {
+	0% {
+        opacity: 0;
+	}
+	100% {
+        opacity: 1;
+	}
+}
+
+.fade-in {
+    animation-name: fade-in;
+    -webkit-animation-name: fade-in;
+
+    animation-duration: 0.8s;
+	-webkit-animation-duration: 0.8s;
+
+	animation-timing-function: ease-in-out;	
+	-webkit-animation-timing-function: ease-in-out;
+
+	opacity: 1;
+}

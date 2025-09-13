@@ -1,0 +1,39 @@
+<div class="event-nav">
+    <div class="bg-tx event-title">Tratamiento</div>
+</div>
+<div class="page">
+    <ul>
+        <li>Simultáneamente:
+            <ul>
+                <li>Eliminar flujo de gases médicos</li>
+                <li>Retirar del paciente las sábanas y todo material inflamable o en llamas</li>
+                <li>Intentar extinguir el fuego virtiendo solución salina sobre el mismo</li>
+            </ul>
+        </li>
+        <li>Si el fuego no se extingue tras el primer intento, usar un extintor de CO<sub>2</sub></li>
+        <li>Si el fuego persiste:
+            <ul>
+                <li><strong>Activar alarma de incendios</strong></li>
+                <li>Sacar al paciente del quirófano</li>
+                <li>Confinar el fuego cerrando todas las puertas del quirófano</li>
+                <li>Eliminar suministro de O<sub>2</sub> al quirófano</li>
+            </ul>
+        </li>
+        <li>Mantener ventilación. Evaluar lesiones por inhalación</li>
+        <li>Considerar evaluación por ORL, neumonología y cirugía plástica</li>
+        <li>Considerar <span data-phone-number="PICU">UCI</span></li>
+        <li id="phone-number-fire" class="display-none">Llamar al número de <span data-phone-number="Fire">emergencias/incendio</span></li>
+        <li>Eliminar entrada de gases al quirófano afectado, si el fuego no ha sido contenido
+            <ul>
+                <li>Verificar que no cierren gases a quirófanos adyacentes</li>
+            </ul>
+        </li>
+        <li>Confiscar equipos e insumos para inspección posterior</li>
+    </ul>
+</div>
+<script>
+    // If we have a phone number for "Fire", then show the pertinent list item!
+    if (app.phoneNumbers.get().Fire) {
+        document.getElementById("phone-number-fire").style.display = "list-item";
+    }
+</script>

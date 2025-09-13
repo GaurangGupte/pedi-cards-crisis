@@ -1,0 +1,37 @@
+<div class="event-nav">
+    <div class="button-group">
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/acute-hypertension-dx.html" data-title="Hipertensión aguda" class="bg-dx">Diagnóstico</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/acute-hypertension-ddx.html" data-title="Hipertensión aguda" class="bg-ddx">Diagnóstico diferencial</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/acute-hypertension-tx.html" data-title="Hipertensión aguda" class="bg-tx">Tratamiento</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/acute-hypertension-drugs.html" data-title="Hipertensión aguda" class="bg-drugs">Medicamentos</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/acute-hypertension-crisis.html" data-title="Hipertensión aguda" class="bg-crisis emphasis">Crisis</button>
+        </div>
+    </div>
+    <div class="bg-crisis event-title">Manejo de crisis (si es severa)</div>
+</div>
+<div class="page">
+    <ul>
+        <li>Notificar al cirujano, pedir ayuda y el carro de paro</li>
+        <li>Solicitar <span data-phone-number="Echo">ecocardiograma transesofágico</span></li>
+        <li>Empezar compresiones torácicas</li>
+        <li class="no-weight">Administrar ADRenalina 10 MICROgramos/kg IV/IO</li>
+        <li class="has-weight">Administrar ADRenalina <span id="weight-range-1"></span> MICROgramos <span class="dose-definition">(10 MICROgramos/kg)</span> IV/IO</li>
+        <li>En caso de paro cardíaco, ver página de <span data-uri="/html/{lang}/events/cardiac-arrest-dx.html" data-title="Paro cardíaco" class="uri">paro cardíaco</span></li>
+        <li>Considere <span data-phone-number="ECMO">ECMO</span></li>
+    </ul>
+</div>
+<script>
+    if (app.weight > 0) {
+        // 10 MICROgramos/kg
+        document.getElementById("weight-range-1").textContent = app.printNumber(app.weight * 10, 0, 2);
+    }
+</script>
