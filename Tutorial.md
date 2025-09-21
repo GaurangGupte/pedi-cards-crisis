@@ -22,4 +22,6 @@ Next, follow this tutorial. I encourage you to work along with his examples and 
 
 Once you have gained familiarity with it, incorporate Git into your Microsoft Visual Studio installation. Please read this instruction set: [VS Code Git integration](https://code.visualstudio.com/docs/sourcecontrol/intro-to-git)
 
+# Project Specific Instructions 
 
+(To be continued)
