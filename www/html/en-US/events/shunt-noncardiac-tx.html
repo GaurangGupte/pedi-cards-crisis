@@ -1,0 +1,74 @@
+<div class="event-nav">
+    <div class="button-group">
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/shunt-noncardiac-actions.html" data-title="Shunt for Noncardiac Surgery" class="bg-actions">Immediate Actions</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/shunt-noncardiac-summary.html" data-title="Shunt for Noncardiac Surgery" class="bg-summary">Summary</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/shunt-noncardiac-tx.html" data-title="Shunt for Noncardiac Surgery" class="bg-tx">Tx</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/shunt-noncardiac-other.html" data-title="Shunt for Noncardiac Surgery" class="bg-other">Other</button>
+        </div>
+    </div>
+    <div class="bg-tx event-title">Treatment</div>
+</div>
+<div class="page">
+    <ul>
+        <li>Acute Intraoperative Hypotension
+            <ul>
+                <li>Check for rhythm/ST changes; if not in NSR, consider calling EP</li>
+                <li>IV fluid administration
+                <li>Inotropes may be necessary - epinephrine, dopamine, calcium</li>
+                <li>Check ABG/VBG for anemia and acidosis - treat if found</li>
+                <li>Consider excessive pulmonary blood flow - lower FiO2 to keep saturations greater than 80% and avoid hypocarbia</li>
+                <li>Echocardiography for refractory hypotension</li>
+                <li>Consider other causes:</li>
+                    <ul>
+                        <li>Excessive sedation</li> 
+                        <li>Anaphylaxis</li> 
+                        <li>Drug error</li>
+                        <li>Bleeding</li>
+                    </ul>
+            </ul>
+        </li>
+        <li>Acute Intraoperative Hypoxemia
+            <ul>
+                <li>Check from machine to patient:
+                    <ul>
+                        <li>100% FiO2</li>
+                        <li>Check vent settings and connection</li>
+                        <li>suction ETT</li>
+                        <li>listen for breath sounds</li>
+                        <li>considier FOB or CXR to aid diagnosis</li>
+                    </ul>
+                </li>
+                <li>Check blood pressure, rhythm (if not NSR, call EP)</li>
+                <li>Consider inotropic support (epinephrine or calcium)</li>
+                <li>Auscultate the chest for presence of a <strong>shunt murmur</strong>.  If none, try to evaluate with echocardiography. If profound desaturation, give empiric heparin bolus (~75-100U/kg). If there has been surgical blood loss, consider giving blood.  If not, consider crystalloid or albumin.
+                <li>Peform maneuvers to ensure PVR low
+                    <ul>
+                        <li>increase FiO2</li>
+                        <li>moderate hyperventilation</li>
+                        <li>check for acidosis and treat if present</li>
+                        <li>consider inhaled nitric oxide administration</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<script>
+    if (app.weight > 0) {
+        // We'll fill in the weight ranges here.
+
+        // 1-10 MICROgrams/kg
+        const calculatedRange1a = app.printNumber(app.weight, 0, 2);
+        const calculatedRange1b = app.printNumber(app.weight * 10, 0, 2);
+        document.getElementById("weight-range-1").textContent = calculatedRange1a + "-" + calculatedRange1b;
+
+    }
+</script>

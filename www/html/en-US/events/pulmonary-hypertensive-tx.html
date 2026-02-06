@@ -1,0 +1,65 @@
+<div class="event-nav">
+    <div class="button-group">
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/pulmonary-hypertensive-actions.html" data-title="Pulmonary Hypertensive Crisis"
+                class="bg-actions">Actions</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/pulmonary-hypertensive-summary.html" data-title="Pulmonary Hypertensive Crisis"
+                class="bg-summary">Summary</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/pulmonary-hypertensive-tx.html" data-title="Pulmonary Hypertensive Crisis" 
+                class="bg-tx">Tx</button>
+        </div>
+         <div class="button-container">
+            <button data-uri="/html/{lang}/events/pulmonary-hypertensive-other.html" data-title="Pulmonary Hypertensive Crisis" 
+                class="bg-other">Other</button>
+        </div>
+    </div>
+    <div class="bg-tx event-title">Treatment</div>
+</div>
+<div class="page">
+
+<ul>
+    <li>Stop procedure and/or stimulation if at all possible</li>
+    <li>Increase FiO2</li>
+    <li>Inhaled nitric oxide, inhaled/IV prostanoids</li>
+    <li>Give additional sedation (opioids or benzodiazepines), consider muscle relaxants</li>
+    <li>Correct hypercarbia</li>
+    <li>Administer sodium bicarbonate if metabolic acidosis</li>
+    <li>Inotropes/Vasopressors
+        <ul>
+            <li>Epinephrine/dopamine improve RV function but excessive tachycardia may be detrimental</li>
+            <li>Norepinephrine may improve SVR but may also raise PVR</li>
+            <li>Vasopressin may improve SVR, possibly lower PVR</li>
+            <li>Milrinone may lower PVR but hypotension possible</li>
+        </ul>
+    </li>
+    <li>Consideration for other supportive strategies such as ECMO</li>
+</ul>
+
+</div>
+
+<script>
+    if (app.weight > 0) {
+        // 1 MICROgram/kg
+        const calculatedRange1 = app.printNumber(app.weight, 0, 2);
+        document.getElementById("weight-range-1").textContent = calculatedRange1;
+
+        // 0.5-1 mg/kg
+        const calculatedRange2a = app.printNumber(app.weight * 0.5, 0, 2);
+        const calculatedRange2b = app.printNumber(app.weight, 0, 2);
+        document.getElementById("weight-range-2").textContent = calculatedRange2a + "-" + calculatedRange2b;
+
+        // 0.03 units/kg
+        const calculatedRange3 = app.printNumber(app.weight * 0.03, 0, 2);
+        document.getElementById("weight-range-3").textContent = calculatedRange3;
+
+        // 1-10 MICROgrams/kg
+        const calculatedRange4a = app.printNumber(app.weight, 0, 2);
+        const calculatedRange4b = app.printNumber(app.weight * 10, 0, 2);
+        document.getElementById("weight-range-4").textContent = calculatedRange4a + "-" + calculatedRange4b;
+
+    }
+</script>

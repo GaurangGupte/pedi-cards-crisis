@@ -1,0 +1,76 @@
+<div class="event-nav">
+    <div class="button-group">
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/pulmonary-hypertensive-actions.html" data-title="Pulmonary Hypertensive Crisis"
+                class="bg-actions">Actions</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/pulmonary-hypertensive-summary.html" data-title="Pulmonary Hypertensive Crisis"
+                class="bg-summary">Summary</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/pulmonary-hypertensive-tx.html" data-title="Pulmonary Hypertensive Crisis" 
+                class="bg-tx">Tx</button>
+        </div>
+         <div class="button-container">
+            <button data-uri="/html/{lang}/events/pulmonary-hypertensive-other.html" data-title="Pulmonary Hypertensive Crisis" 
+                class="bg-other">Other</button>
+        </div>
+    </div>
+    <div class="bg-actions event-title">Immediate  Actions</div>
+</div>
+<div class="page">
+    <ul>
+        <li>Call for help</li>
+        <li>Notify team</li>
+    </ul>
+        <strong>Initial Management</strong>
+    <ul>
+        <li>Give 100% O<sub>2</sub>
+            <ul>
+                <li>Call for <span data-phone-number="Request Nitric Oxide">
+                    inhaled nitric oxide (iNO)</span> 20-40 ppm</li>
+                <li>↓&nbsp;O<sub>2</sub> saturation may not be immediate</li>
+            </ul>
+        </li>
+        <li>Consider stat TEE and ECMO</li>
+
+        <li class="no-weight">
+            Deepen anesthetic/sedation, consider fentanyl 1 MICROgram/kg or ketamine 0.5-1 mg/kg
+        </li>
+        <li class="has-weight">
+            Deepen anesthetic/sedation, consider fentanyl
+            <span id="weight-range-1"></span> MICROgrams
+            <span class="dose-definition">(1&nbsp;MICROgram/kg)</span>
+            or ketamine
+            <span id="weight-range-2"></span> mg
+            <span class="dose-definition">(0.5-1&nbsp;mg/kg)</span>
+        </li>
+
+
+        <li>Administer muscle relaxant</li>
+        <li>If poor perfusion, consider chest compressions early</li>
+    </ul>
+</div>
+<script>
+    if (app.weight > 0) {
+        // 1 MICROgram/kg
+        const calculatedRange1 = app.printNumber(app.weight, 0, 2);
+        document.getElementById("weight-range-1").textContent = calculatedRange1;
+
+        // 0.5-1 mg/kg
+        const calculatedRange2a = app.printNumber(app.weight * 0.5, 0, 2);
+        const calculatedRange2b = app.printNumber(app.weight, 0, 2);
+        document.getElementById("weight-range-2").textContent = calculatedRange2a + "-" + calculatedRange2b;
+
+        // 0.03 units/kg
+        const calculatedRange3 = app.printNumber(app.weight * 0.03, 0, 2);
+        document.getElementById("weight-range-3").textContent = calculatedRange3;
+
+        // 1-10 MICROgrams/kg
+        const calculatedRange4a = app.printNumber(app.weight, 0, 2);
+        const calculatedRange4b = app.printNumber(app.weight * 10, 0, 2);
+        document.getElementById("weight-range-4").textContent = calculatedRange4a + "-" + calculatedRange4b;
+
+    }
+</script>

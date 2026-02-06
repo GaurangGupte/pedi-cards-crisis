@@ -1,0 +1,30 @@
+<div class="event-nav">
+    <div class="button-group">
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/transfusion-actions.html" data-title="Transfusion Reactions" class="bg-actions">Actions</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/transfusion-summary.html" data-title="Transfusion Reactions" class="bg-summary">Summary</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/transfusion-ddx.html" data-title="Transfusion Reactions" class="bg-ddx">DDx</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/transfusion-tx.html" data-title="Transfusion Reactions" class="bg-tx">Tx</button>
+        </div>
+    </div>
+    <div class="bg-actions event-title">Immediate Actions</div>
+</div>
+<div class="page">
+    <ul>
+        <li>Stop transfusion</li>
+        <li>Notify team and blood bank</li>
+        <li>Verify unit number/patient</li>
+    </ul>
+</div>
+<script>
+    if (app.weight > 0) {
+        // 10 MICROgrams/kg
+        document.getElementById("weight-range-1").textContent = app.printNumber(app.weight * 10, 0, 2);
+    }
+</script>

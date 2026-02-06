@@ -1,0 +1,53 @@
+<div class="event-nav">
+    <div class="button-group">
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/glenn-noncardiac-actions.html" data-title="Glenn for Noncardiac Surgery" class="bg-actions">Immediate Actions</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/glenn-noncardiac-summary.html" data-title="Glenn for Noncardiac Surgery" class="bg-summary">Summary</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/glenn-noncardiac-tx.html" data-title="Glenn for Noncardiac Surgery" class="bg-tx">Tx</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/glenn-noncardiac-other.html" data-title="Glenn for Noncardiac Surgery" class="bg-other">Other</button>
+        </div>
+    </div>
+    <div class="bg-other event-title">Other Considerations</div>
+</div>
+<div class="page">
+    <ul>
+        <li>Special Surgical Considerations
+            <ul>
+                <li>General:  consider lower body venous access if bleeding anticipated</li>
+                <li>Laparoscopic
+                    <ul>
+                        <li>Pneumoperitoneum has several physiologic effects
+                            <ul>
+                                <li>Carbon dioxide absorption increases PVR</li>
+                                <li>Ventilation impairment from increased basal atelectasis increases PVR</li>
+                                <li>Increased afterload</li>
+                                <li>Decreased preload from reduced IVC venous return can result in hypotension</li>
+                                <li>Increased heart rate</li>
+                            </ul>
+                        </li>
+                        <li>Limit insufflation pressures (ideally less than 10 mmHg) and total time; consider arterial line to monitor</li>
+                        <li>Careful attention to oxygenation and ventilation</li>
+                    </ul>
+                </li>
+                <li>Neurosurgery:  high venous pressures (due to SVC connection to pulmonary artery) predispose patients to increased bleeding risk</li>
+            </ul>
+        </li>
+</div>
+
+<script>
+    if (app.weight > 0) {
+        // We'll fill in the weight ranges here.
+
+        // 1-10 MICROgrams/kg
+        const calculatedRange1a = app.printNumber(app.weight, 0, 2);
+        const calculatedRange1b = app.printNumber(app.weight * 10, 0, 2);
+        document.getElementById("weight-range-1").textContent = calculatedRange1a + "-" + calculatedRange1b;
+
+    }
+</script>

@@ -381,12 +381,12 @@ ul, ol {
     margin-top: 0; /* default is 10px */
 }
 
-/* Dx - Diagnosis - green */
-.bg-dx, button.bg-dx.emphasis {
+/* Summary - Summary - green */
+.bg-summary, button.bg-summary.emphasis {
     background-color: #455e0c;
 }
 
-/* DDx - Diagnosis Differential (Parital) - tan */
+/* Ddx - Differential Dx+ - tan */
 .bg-ddx, button.bg-ddx.emphasis {
     background-color: #b98021;
 }
@@ -396,18 +396,18 @@ ul, ol {
     background-color: #8c01a3;
 }
 
-/* Drugs - Drugs - blue */
-.bg-drugs, button.bg-drugs.emphasis {
+/* Other - Other Considerations - blue */
+.bg-other, button.bg-other.emphasis {
     background-color: #0113dc;
 }
 
-/* Crisis - Crisis - red */
-.bg-crisis, button.bg-crisis.emphasis {
+/* Actions - Immediate Actions - red */
+.bg-actions, button.bg-actions.emphasis {
     background-color: #be251b;
 }
 
-/* Misc - Miscellaneous - orange */
-.bg-misc, button.bg-misc.emphasis {
+/* Cards - related cards - orange */
+.bg-cards, button.bg-cards.emphasis {
     background-color: #f5712d;
 }
 

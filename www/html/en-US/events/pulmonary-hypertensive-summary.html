@@ -1,0 +1,60 @@
+<div class="event-nav">
+    <div class="button-group">
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/pulmonary-hypertensive-actions.html" data-title="Pulmonary Hypertensive Crisis"
+                class="bg-actions">Actions</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/pulmonary-hypertensive-summary.html" data-title="Pulmonary Hypertensive Crisis"
+                class="bg-summary">Summary</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/pulmonary-hypertensive-tx.html" data-title="Pulmonary Hypertensive Crisis" 
+                class="bg-tx">Tx</button>
+        </div>
+         <div class="button-container">
+            <button data-uri="/html/{lang}/events/pulmonary-hypertensive-other.html" data-title="Pulmonary Hypertensive Crisis" 
+                class="bg-other">Other</button>
+        </div>
+    </div>
+    <div class="bg-summary event-title">Summary</div>
+</div>
+<div class="page">
+ 
+    <ul>
+    The right ventricle cannot handle acute increases in pulmonary artery pressure or pulmonary vascular resistance (PVR), and therefore acute pulmonary hypertensive crises can lead to circulatory collapse requiring mechanical circulatory support. Immediate efforts should be made to reduce PVR, remove any inciting stimuli, and provide cardiocirculatory support. Acute therapies should be weaned while instituting long-term therapies, as abrupt cessation of pulmonary vasodilatory therapy may result in rebound pulmonary hypertensive events.
+   </ul>
+    <ul>
+        <strong>Signs and symptoms</strong>
+        <ul>
+            <li>Cyanosis (blue lips, gingivae, nail beds)</li>
+            <li>Hypoxia (low SpO2)</li>
+            <li>Agitation</li>
+            <li>Hypotension</li>
+            <li>Bradycardia and/or cardiac arrest</li>
+        </ul>
+    </ul>
+
+</div>
+<script>
+    if (app.weight > 0) {
+        // 1 MICROgram/kg
+        const calculatedRange1 = app.printNumber(app.weight, 0, 2);
+        document.getElementById("weight-range-1").textContent = calculatedRange1;
+
+        // 0.5-1 mg/kg
+        const calculatedRange2a = app.printNumber(app.weight * 0.5, 0, 2);
+        const calculatedRange2b = app.printNumber(app.weight, 0, 2);
+        document.getElementById("weight-range-2").textContent = calculatedRange2a + "-" + calculatedRange2b;
+
+        // 0.03 units/kg
+        const calculatedRange3 = app.printNumber(app.weight * 0.03, 0, 2);
+        document.getElementById("weight-range-3").textContent = calculatedRange3;
+
+        // 1-10 MICROgrams/kg
+        const calculatedRange4a = app.printNumber(app.weight, 0, 2);
+        const calculatedRange4b = app.printNumber(app.weight * 10, 0, 2);
+        document.getElementById("weight-range-4").textContent = calculatedRange4a + "-" + calculatedRange4b;
+
+    }
+</script>

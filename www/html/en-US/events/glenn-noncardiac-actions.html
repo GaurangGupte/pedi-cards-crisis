@@ -1,0 +1,36 @@
+<div class="event-nav">
+    <div class="button-group">
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/glenn-noncardiac-actions.html" data-title="Glenn for Noncardiac Surgery" class="bg-actions">Immediate Actions</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/glenn-noncardiac-summary.html" data-title="Glenn for Noncardiac Surgery" class="bg-summary">Summary</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/glenn-noncardiac-tx.html" data-title="Glenn for Noncardiac Surgery" class="bg-tx">Tx</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/glenn-noncardiac-other.html" data-title="Glenn for Noncardiac Surgery" class="bg-other">Other</button>
+        </div>
+    </div>
+    <div class="bg-actions event-title">Immediate Actions</div>
+</div>
+<div class="page">
+    <ul>
+        <li>Notify team, call for help</li>
+        <li>Ask surgeon to stop and deflate any CO2 if laparoscopic</li>
+        <li>If still unresolved, call a code, echo, and ECMO</li>
+    </ul>
+</div>
+
+<script>
+    if (app.weight > 0) {
+        // We'll fill in the weight ranges here.
+
+        // 1-10 MICROgrams/kg
+        const calculatedRange1a = app.printNumber(app.weight, 0, 2);
+        const calculatedRange1b = app.printNumber(app.weight * 10, 0, 2);
+        document.getElementById("weight-range-1").textContent = calculatedRange1a + "-" + calculatedRange1b;
+
+    }
+</script>

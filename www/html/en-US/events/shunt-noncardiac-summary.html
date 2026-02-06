@@ -1,0 +1,54 @@
+<div class="event-nav">
+    <div class="button-group">
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/shunt-noncardiac-actions.html" data-title="Shunt for Noncardiac Surgery" class="bg-actions">Immediate Actions</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/shunt-noncardiac-summary.html" data-title="Shunt for Noncardiac Surgery" class="bg-summary">Summary</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/shunt-noncardiac-tx.html" data-title="Shunt for Noncardiac Surgery" class="bg-tx">Tx</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/shunt-noncardiac-other.html" data-title="Shunt for Noncardiac Surgery" class="bg-other">Other</button>
+        </div>
+    </div>
+    <div class="bg-summary event-title">Summary</div>
+</div>
+<div class="page">
+    <ul>
+        <li>Summary
+            <ul>
+                <li>Stage 1 palliation of single ventricle (also known as Norwood; or hybrid if PDA)</li>
+                <li>Blood flow pathway
+                    <ul>
+                        <li>Systemic and pulmonary venous return mix in the common atrium</li>
+                        <li>Blood flows through the atrioventricular valve</li>
+                        <li>Single systemic ventrile pumps blood in the neo-aorta, then systemically</li>
+                        <li>Pulmonary blood flow is provided by a systemic-pulmonary shunt (e.g. Blalock-Taussig (BT) or other central shunt), a right ventricular to pulmonary artery conduit (Sano) or a PDA stent</li>
+                    </ul>
+                </li>
+                <li> </li>
+                <li>Most noncardiac surgery should be delayed or deferred in patients with shunt dependent single ventricle physiology unless absolutely necessary.  Consideration for postoperative ICU bed should be made for recovery following any anesthetic.  For any major procedure, additional monitoring including arterial lines and/or NIRS should be included</li>
+            </ul>
+        </li>
+        <li>Physiologic Goals
+            <ul>
+                <li>Target saturations should be 75-85%</li>
+                <li>MAPs >40-60 mmHg</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<script>
+    if (app.weight > 0) {
+        // We'll fill in the weight ranges here.
+
+        // 1-10 MICROgrams/kg
+        const calculatedRange1a = app.printNumber(app.weight, 0, 2);
+        const calculatedRange1b = app.printNumber(app.weight * 10, 0, 2);
+        document.getElementById("weight-range-1").textContent = calculatedRange1a + "-" + calculatedRange1b;
+
+    }
+</script>

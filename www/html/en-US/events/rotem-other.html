@@ -1,0 +1,35 @@
+<div class="event-nav">
+    <div class="button-group">
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/rotem-summary.html" data-title="ROTEM" class="bg-summary">Summary</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/rotem-other.html" data-title="ROTEM" class="bg-other">Other Considerations</button>
+        </div>
+    </div>
+    <div class="bg-other event-title">Other Considerations</div>
+</div>
+<div class="page">
+Limitations
+<li>Does not account for thrombocytopenia or platelet dysfunction which must be separately tested (e.g. antiplatelet drugs or von Willebrand disease)</li>
+<li>Normal ranges vary slightly by age. One study found prolonged INTEM CT, shorter EXTEM CT, and overall shorter CFT, greater A10, and greater MCF in patients less than 3 months old compared to older (up to 16 years old)</li>
+</div>
+<script>
+    if (app.weight) {
+        const get = (id) => document.getElementById(id);
+
+        // 20 mL/kg
+        get("weight-range-1").textContent = app.printNumber(app.weight * 20, 0, 2);
+
+        // 10 mL/kg
+        get("weight-range-2").textContent = app.printNumber(app.weight * 10, 0, 2);
+
+        // 20 mL/kg
+        get("weight-range-3").textContent = app.printNumber(app.weight * 20, 0, 2);
+
+        // 10-30
+        const calculatedRange4a = app.printNumber(app.weight * 10, 0, 2);
+        const calculatedRange4b = app.printNumber(app.weight * 30, 0, 2);
+        document.getElementById("weight-range-4").textContent = calculatedRange4a + "-" + calculatedRange4b;
+    }
+</script>

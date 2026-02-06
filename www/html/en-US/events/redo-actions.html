@@ -1,0 +1,72 @@
+<div class="event-nav">
+    <div class="button-group">
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/redo-actions.html" data-title="Reoperative Sternotomy" class="bg-actions">Actions</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/redo-summary.html" data-title="Reoperative Sternotomy" class="bg-summary">Summary</button>
+        </div>
+    </div>
+    <div class="bg-actions event-title">Immediate Actions</div>
+</div>
+<div class="page">
+
+        <strong>Pick One:</strong>
+
+    <div id="button-group-vinjury" class="button-group">
+        <div class="button-container">
+            <button><strong>Venous or right/pulmoary heart injury</strong></button>
+        </div>
+    </div>
+    <div id="list-group-vinjury" class="display-none m-l-1">
+        <ul>
+            <li>Surgery
+                <ul>
+                    <li>Packing, manual compression of the chest</li>
+                </ul>
+            </li>
+            <li>Anesthesia
+                <ul>
+                    <li>Volume replacement</li>
+                    <li>Follow gases closesly, transfuse if needed</li>
+                    <li>Check TEE and rule out air in the left heart</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div id="button-group-ainjury" class="button-group">
+            <div class="button-container">
+                <button><strong>Arterial or systemic/left heart injury</strong></button>
+            </div>
+        </div>
+        <div id="list-group-ainjury" class="display-none m-l-1">
+            <ul>
+                <li>Surgery
+                    <ul>
+                        <li>Cannulate and initiate CPB for decompression</li>
+                        <li>Need for deep hypothermia & circulatory arrest</li>
+                        <li>May require LV drain or systemic potassium if fibrillates and ventricle distends</li>
+                    </ul>
+                </li>
+                <li>Anesthesia
+                    <ul>
+                        <li>Call for help!</li>
+                        <li>Obtain additional pRBC (matched pRBC or emergency release or massive transfusion activation - based on local practice). Use cell saver blood as able</li>
+                        <li>Transfuse as needed via rapid infuser</li>
+                        <li>Start vasopressor and inotropes to support BP</li>
+                        <li>Place ice on head if circulatory arrest planned</li>
+                        <li>Assess for risk of <span data-uri="/html/{lang}/events/air-embolism-dx.html" data-title="Air Embolism" class="uri">AIR EMBOLISM</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+<script>
+        // The "pick one" section uses the accordion paradigm to show only relevant data.
+        const get = (id => document.getElementById(id)); // (this is a helper function)
+        app.createAccordion([
+            {button: get("button-group-vinjury"), content: get("list-group-vinjury")}, 
+            {button: get("button-group-ainjury"), content: get("list-group-ainjury")}
+        ]);
+</script>

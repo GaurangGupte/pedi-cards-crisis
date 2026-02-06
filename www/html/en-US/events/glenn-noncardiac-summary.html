@@ -1,0 +1,53 @@
+<div class="event-nav">
+    <div class="button-group">
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/glenn-noncardiac-actions.html" data-title="Glenn for Noncardiac Surgery" class="bg-actions">Immediate Actions</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/glenn-noncardiac-summary.html" data-title="Glenn for Noncardiac Surgery" class="bg-summary">Summary</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/glenn-noncardiac-tx.html" data-title="Glenn for Noncardiac Surgery" class="bg-tx">Tx</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/glenn-noncardiac-other.html" data-title="Glenn for Noncardiac Surgery" class="bg-other">Other</button>
+        </div>
+    </div>
+    <div class="bg-summary event-title">Summary</div>
+</div>
+<div class="page">
+    <ul>
+        <li>Summary
+            <ul>
+                <li>Stage 2 palliation of single ventricle (also known as Bidrectional Glenn - BDG) involves the creation of a superior cavopulmonary anastomosis to provide pulmonary blood flow</li>
+                <li>Blood flow pathway
+                    <ul>
+                        <li>Single ventricle ejects blood systemically through the neo-aorta</li>
+                        <li>Venous blood from head, neck and arms is routed to the pulmonary artery via the superior cavopulmonary anastomosis</li>
+                        <li>Oxygenated blood returns via the pulmonary veins to the common atrium</li>
+                        <li>Venous blood from the lower body drains via the inferior vena cava (IVC) to the common atrium to mix with oxygenated blood returning from the lungs</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Physiologic Goals
+            <ul>
+                <li>Target saturations should be 75-85%</li>
+                <li>Low-normal pulmonary vascular resistance (pulmonary blood flow is passive)</li>
+                <li>Maintain preload, NSR, normal/low normal SVR</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<script>
+    if (app.weight > 0) {
+        // We'll fill in the weight ranges here.
+
+        // 1-10 MICROgrams/kg
+        const calculatedRange1a = app.printNumber(app.weight, 0, 2);
+        const calculatedRange1b = app.printNumber(app.weight * 10, 0, 2);
+        document.getElementById("weight-range-1").textContent = calculatedRange1a + "-" + calculatedRange1b;
+
+    }
+</script>

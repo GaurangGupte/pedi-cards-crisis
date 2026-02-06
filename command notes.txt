@@ -1,0 +1,20 @@
+powershell => git
+git init = est git repository
+git remote add origin = be on the lookout for the files
+git pull origin main = pull files
+cd "ccas app"
+ls = list
+up arrow repeats last command
+
+git commit . -m "<note>" = upload the file back to local git repository
+git push origin master = upload to remote repository (will prompt authorization)
+
+Download:
+- Node
+- cordova
+- visual studio
+
+color coding in www -> css -> index.css
+
+↑&nbsp; = up arrow + space between words.  ↓&nbsp; = down arrow + space between words
+&amp = "&" symbol

@@ -1,0 +1,79 @@
+<div class="event-nav">
+    <div class="button-group">
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/glenn-noncardiac-actions.html" data-title="Glenn for Noncardiac Surgery" class="bg-actions">Immediate Actions</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/glenn-noncardiac-summary.html" data-title="Glenn for Noncardiac Surgery" class="bg-summary">Summary</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/glenn-noncardiac-tx.html" data-title="Glenn for Noncardiac Surgery" class="bg-tx">Tx</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/glenn-noncardiac-other.html" data-title="Glenn for Noncardiac Surgery" class="bg-other">Other</button>
+        </div>
+    </div>
+    <div class="bg-tx event-title">Treatment</div>
+</div>
+<div class="page">
+    <ul>
+        <li>Acute Intraoperative Hypotension
+            <ul>
+                <li>Check for rhythm; if not in NSR, consider calling EP</li>
+                <li>IV fluid administration (crystalloids are appropriate) to maintain adequate preload
+                <li>Inotropes may be necessary</li>
+                <li>Check ABG/VBG for anemia</li>
+                <li>Echocardiography for refractory hypotension</li>
+                <li>Consider other causes:</li>
+                    <ul>
+                        <li>Excessive sedation</li> 
+                        <li>Anaphylaxis</li> 
+                        <li>Drug error</li>
+                        <li>Bleeding</li>
+                    </ul>
+            </ul>
+        </li>
+        <li>Acute Intraoperative Hypoxemia
+            <ul>
+                <li>Stop the procedure, call for help</li>
+                <li>Assess ventilation
+                    <ul>
+                        <li>Consider CXR and/or using fiberoptic bronchoscopy</li>
+                        <li>ETT displacement (?right mainstem) obstruction, pneumothorax, equipment (ventilator) failure, others</li>
+                    </ul>
+                </li>
+                <li>Lower the PVR
+                    <ul>
+                        <li>Optimize ventilation</li>
+                        <li>Check ABG or VBG for CO2 levels</li>
+                        <li>Consider nitric oxide to further lower PVR</li>
+                    </ul>
+                </li>
+                <li>Assess the cardiac output
+                    <ul>
+                        <li>Consider additional fluid, inotropes</li>
+                        <li>Echocardiography - function, effusion, thrombus</li>
+                    </ul>
+                </li>
+                <li>Check for anemia
+                    <ul>
+                        <li>Check ABG or VBG</li>
+                        <li>If no other causes found, consider transfusion to acheive Hct >40</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<script>
+    if (app.weight > 0) {
+        // We'll fill in the weight ranges here.
+
+        // 1-10 MICROgrams/kg
+        const calculatedRange1a = app.printNumber(app.weight, 0, 2);
+        const calculatedRange1b = app.printNumber(app.weight * 10, 0, 2);
+        document.getElementById("weight-range-1").textContent = calculatedRange1a + "-" + calculatedRange1b;
+
+    }
+</script>

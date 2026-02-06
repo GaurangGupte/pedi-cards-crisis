@@ -1,0 +1,53 @@
+<div class="event-nav">
+    <div class="button-group">
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/nirs-abnormal-actions.html" data-title="Abnormal NIRS on CPB"
+                class="bg-actions">Actions</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/nirs-abnormal-summary.html" data-title="Abnormal NIRS on CPB"
+                class="bg-summary">Summary</button>
+        </div>
+                <div class="button-container">
+            <button data-uri="/html/{lang}/events/nirs-abnormal-ddx.html" data-title="Abnormal NIRS on CPB" 
+                class="bg-ddx">DDx</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/nirs-abnormal-tx.html" data-title="Abnormal NIRS on CPB" 
+                class="bg-tx">Tx</button>
+        </div>
+         <div class="button-container">
+            <button data-uri="/html/{lang}/events/nirs-abnormal-other.html" data-title="Abnormal NIRS on CPB" 
+                class="bg-other">Other</button>
+        </div>
+    </div>
+    <div class="bg-actions event-title">Immediate  Actions</div>
+</div>
+<div class="page">
+    <ul>
+        <li>Notify Team</li>
+        <li>Consider calling for help</li>
+    </ul>
+</div>
+<script>
+    if (app.weight > 0) {
+        // 1 MICROgram/kg
+        const calculatedRange1 = app.printNumber(app.weight, 0, 2);
+        document.getElementById("weight-range-1").textContent = calculatedRange1;
+
+        // 0.5-1 mg/kg
+        const calculatedRange2a = app.printNumber(app.weight * 0.5, 0, 2);
+        const calculatedRange2b = app.printNumber(app.weight, 0, 2);
+        document.getElementById("weight-range-2").textContent = calculatedRange2a + "-" + calculatedRange2b;
+
+        // 0.03 units/kg
+        const calculatedRange3 = app.printNumber(app.weight * 0.03, 0, 2);
+        document.getElementById("weight-range-3").textContent = calculatedRange3;
+
+        // 1-10 MICROgrams/kg
+        const calculatedRange4a = app.printNumber(app.weight, 0, 2);
+        const calculatedRange4b = app.printNumber(app.weight * 10, 0, 2);
+        document.getElementById("weight-range-4").textContent = calculatedRange4a + "-" + calculatedRange4b;
+
+    }
+</script>
