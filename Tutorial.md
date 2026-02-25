@@ -24,4 +24,7 @@ Once you have gained familiarity with it, incorporate Git into your Microsoft Vi
 
 # Project Specific Instructions 
 
-(To be continued)
+# Github Instructions
+
+(To be continued....)
+
