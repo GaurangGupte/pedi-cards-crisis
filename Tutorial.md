@@ -26,5 +26,5 @@ Once you have gained familiarity with it, incorporate Git into your Microsoft Vi
 
 # Github Instructions
 
-(To be continued....)
+(To be continued........)
 
