@@ -1,0 +1,33 @@
+<div class="event-nav">
+    <div class="button-group">
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/asd-embolization-tx.html" data-title="ASD Device Embolization" class="bg-tx">Tx</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/asd-embolization-dx.html" data-title="ASD Device Embolization" class="bg-dx">Dx</button>
+        </div>
+        <div class="button-container">
+            <button data-uri="/html/{lang}/events/asd-embolization-summary.html" data-title="ASD Device Embolization" class="bg-summary">Summary</button>
+        </div>
+        
+    </div>
+    <div class="bg-crisis event-title">Signs and Symptoms</div>
+</div>
+
+<div class = "page">
+
+    <ul>
+        <ls> Arrhythmias (supraventricular or ventricular) </ls>
+        <ls> Chest pain or palpitations </ls>
+        <ls> Hemodynamic Instability </ls>
+        <ls> Hypoxia </ls>
+        <ls> Cardiac arrest </ls>
+        <ls> May also be asymptomatic </ls>
+
+
+    </ul>
+
+
+</dx>
+
+
