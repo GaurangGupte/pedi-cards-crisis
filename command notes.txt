@@ -18,3 +18,7 @@ color coding in www -> css -> index.css
 
 ↑&nbsp; = up arrow + space between words.  ↓&nbsp; = down arrow + space between words
 &amp = "&" symbol
+
+TO SEND TO GITHUB:  
+- inside 'source control' (3 connected dots)
+- stage => commit => push (inside dropdown menu (ellipses), to option 'main' OR 'origin') => publish 
