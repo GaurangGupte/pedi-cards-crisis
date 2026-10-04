@@ -331,7 +331,7 @@
                 if (nextHeader === "Cardi Crisis") {
                     headerElement.textContent = "Cardi Crisis ";
                     const sup = document.createElement("sup");
-                    sup.textContent = "2.0";
+                    sup.textContent = "1.0";
                     sup.style.color = "#888";
                     headerElement.appendChild(sup);
                 } else {
